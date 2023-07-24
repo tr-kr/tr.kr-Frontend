@@ -6,10 +6,10 @@ module.exports = {
         primary: '#3F4FE1'
       },
       fontFamily: {
-        'acEBold': ['acEBold', 'sans-serif'],
-        'acLight': ['acLight', 'sans-serif'],
-        'acRegular': ['acRegular', 'sans-serif'],
-        'acBold': ['acBold', 'sans-serif']
+        'EB': ['f_eb', 'sans-serif'],
+        'L': ['f_l', 'sans-serif'],
+        'R': ['f_r', 'sans-serif'],
+        'B': ['f_b', 'sans-serif']
       }
     },
   },
