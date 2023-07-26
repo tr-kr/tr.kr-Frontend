@@ -11,15 +11,15 @@ const Header = () => {
         {navItems.map((item) => (
           <li
             className={`
-            ${item === active && 'border-b border-primary'}
-              `}
+            ${item === active && 'border-b-4 border-primary'}
+              py-4`}
             onClick={() => setActive(item)}
           >
             {item}
           </li>
         ))}
       </ul>
-      <button className="px-4 py-2 text-sm font-bold text-white bg-transparent border-2 border-primary rounded-md">
+      <button className="px-4 py-2 text-lg font-bold text-white bg-transparent border-2 border-primary rounded-md">
         로그인
       </button>
     </header>
