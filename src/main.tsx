@@ -3,14 +3,26 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.tsx';
 import Home from './pages/Home.tsx';
-import './index.css'
+import CompCreatePage from './pages/CompCreatePage';
+import './index.css';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     // errorElement: <Error/>,
-    children: [{ index: true, path: '/', element: <Home /> }],
+    children: [
+      {
+        index: true,
+        path: '/',
+        element: <Home />,
+      },
+      {
+        index: true,
+        path: 'create-comps',
+        element: <CompCreatePage />,
+      },
+    ],
   },
 ]);
 
