@@ -6,6 +6,10 @@ module.exports = {
         primary: '#3F4FE1',
         gray: '#444444'
       },
+      gradientColorStops: theme => ({
+        'primary-start': '#3F4FE1',
+        'primary-end': '#7E8FFA',
+    }),
       fontFamily: {
         'EB': ['f_eb', 'sans-serif'],
         'L': ['f_l', 'sans-serif'],
