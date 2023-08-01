@@ -12,9 +12,20 @@ const router = createBrowserRouter([
     path: '/',
     element: <App />,
     // errorElement: <Error/>,
-    children: [{ index: true, path: '/', element: <Home /> }, 
-    {index: true, path: 'rule-book', element: <RuleBook />}, 
-    {index: true, path: 'participating-team', element: <ParticipatingTeam />}],
+    children: [
+      {
+        index: true,
+        element: <Home />
+      },
+      {
+        path: 'rule-book', 
+        element: <RuleBook />
+      },
+      {
+        path: 'participating-team', 
+        element: <ParticipatingTeam />
+      }
+    ],
   },
 ]);
 
