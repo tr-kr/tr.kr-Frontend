@@ -5,6 +5,7 @@ import App from './App.tsx';
 import Home from './pages/Home.tsx';
 import RuleBook from './components/RuleBook/RuleBook.tsx'
 import ParticipatingTeam from './components/ParticipatingTeam/ParticipatingTeam.tsx'
+import Result from './components/Result/Result.tsx'
 import './index.css'
 
 const router = createBrowserRouter([
@@ -12,9 +13,24 @@ const router = createBrowserRouter([
     path: '/',
     element: <App />,
     // errorElement: <Error/>,
-    children: [{ index: true, path: '/', element: <Home /> }, 
-    {index: true, path: 'rule-book', element: <RuleBook />}, 
-    {index: true, path: 'participating-team', element: <ParticipatingTeam />}],
+    children: [
+      {
+        index: true,
+        element: <Home />
+      },
+      {
+        path: 'rule-book', 
+        element: <RuleBook />
+      },
+      {
+        path: 'participating-team', 
+        element: <ParticipatingTeam />
+      },
+      {
+        path: 'result', 
+        element: <Result />
+      }
+    ],
   },
 ]);
 
