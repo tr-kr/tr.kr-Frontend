@@ -18,9 +18,9 @@ const Result = () => {
                 </div>
             </div>
             <div className="flex mt-[10px]">
-                <button className="w-[104.68px] h-[34.53px] bg-[#3f4fe1] text-white text-[20px] rounded-[25px] border-[3px] border-white">
+                <div className="w-[104.68px] h-[34.53px] bg-[#3f4fe1] text-white text-[20px] text-center rounded-[25px] border-[3px] border-white">
                     진행중
-                </button>
+                </div>
                 <div className="text-white text-[24px] ml-[15px]">
                     20XX.XX.XX~XX.XX
                 </div>
@@ -30,7 +30,7 @@ const Result = () => {
                     {backendData.map((item, index) => (
                         <React.Fragment key={index}>
                             <div className="text-white text-[20px] text-center">
-                                {index + 1} {item}
+                                {index + 1}.  {item}
                             </div>
                             {index < backendData.length - 1 && <div className="border-b mr-[5px] ml-[5px]"></div>}
                         </React.Fragment>
