@@ -1,58 +1,47 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef } from 'react';
 import { Carousel } from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { AiOutlineCaretLeft, AiOutlineCaretRight } from "react-icons/ai";
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import carousel styles
+
+const images = [
+  'https://plus.unsplash.com/premium_photo-1673002094186-c7d8988b0f5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+  'https://images.unsplash.com/photo-1682685796063-d2604827f7b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+  'https://images.unsplash.com/photo-1690626826433-08108e7a4516?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=80',
+];
 
 export default function MainCarousel() {
-    const [activeIndex, setActiveIndex] = useState(0);
+  const carouselRef = useRef(null);
 
-    const handleChange = (index) => {
-        setActiveIndex(index);
-        setProgress(0);
-    }
+  const onNext = () => {
+    carouselRef.current.increment();
+  };
 
-    const images = [
-        { title: 'Image 1', url: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39' },
-        { title: 'Image 2', url: 'https://images.unsplash.com/photo-1558979158-65a1eaa08691' },
-        { title: 'Image 3', url: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39' },
-        { title: 'Image 4', url: 'https://images.unsplash.com/photo-1558979158-65a1eaa08691' },
-        { title: 'Image 5', url: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39' },
-    ];
+  const onPrev = () => {
+    carouselRef.current.decrement();
+  };
 
-    return (
-        <div className="relative">
-            <Carousel 
-            selectedItem={activeIndex}
-            showThumbs={false}
-            interval={5000} 
-            onChange={handleChange} 
-            infiniteLoop
-            showArrows={true}>
-                {images.map((image, index) => (
-                    <div key={index}>
-                        <img src={image.url} alt={image.title} />
-                    </div>
-                ))}
-            </Carousel>
-            <div className="absolute bottom-0 w-full flex  items-center p-4">
-                <div className="flex items-center justify-center w-12 h-12 text-4xl bg-white rounded-full cursor-pointer shadow-lg">
-                <AiOutlineCaretLeft/>
-                </div>
-                <div className="flex items-center justify-between w-full">
-                        {images.map((image, index) => (
-                            <div 
-                            onClick={()=> handleChange(index)}
-                            key={index} className={`cursor-pointer w-1/3 overflow-scroll h-auto p-4  rounded-full mx-1 text-gray
-                            ${activeIndex === index ? 'bg-primary' : ' bg-white'}
-                            `}>
-                                {image.title}
-                            </div>
-                        ))}
-                    </div>
-                    <div className="flex items-center justify-center w-12 h-12 text-4xl bg-white rounded-full cursor-pointer shadow-lg">
-                <AiOutlineCaretRight/>
-                </div>
-            </div>
-        </div>
-    );
+  return (
+    <div>
+      <Carousel
+        ref={carouselRef}
+        showThumbs={false}
+        showStatus={false}
+        infiniteLoop={true}
+        autoPlay={true}
+        interval={5000}
+        transitionTime={1000}
+      >
+        {images.map((image, index) => (
+          <div key={index}>
+            <img src={image} alt="carousel" />
+          </div>
+        ))}
+      </Carousel>
+      <button className="bg-primary p-4 text-white" onClick={onPrev}>
+        Previous
+      </button>
+      <button className="bg-primary p-4 text-white" onClick={onNext}>
+        Next
+      </button>
+    </div>
+  );
 }
