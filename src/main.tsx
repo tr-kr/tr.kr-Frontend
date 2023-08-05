@@ -14,11 +14,9 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        path: '/',
         element: <Home />,
       },
       {
-        index: true,
         path: 'create-comps',
         element: <CompCreatePage />,
       },
