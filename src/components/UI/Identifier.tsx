@@ -6,9 +6,9 @@ interface Props {
 const Identifier = ({ title, color }: Props) => {
   return (
     <>
-      <div className="flex justify-start w-auto h-auto">
+      <div className="flex justify-start max-w-[80px] h-auto">
         <div
-          className={`w-auto h-auto font-R pl-[11px] pr-[11px] box-border ${
+          className={`w-auto h-auto font-R pl-[11px] pr-[11px] rounded-[7px] box-border break-keep ${
             color === 'primary' ? 'bg-[#3f4fe1]' : 'bg-white'
           } ${
             color === 'primary' ? 'text-white' : 'text-[#3f4fe1]'
