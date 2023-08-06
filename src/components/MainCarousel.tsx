@@ -85,13 +85,13 @@ export default function MainCarousel() {
         showIndicators={false}
       >
         {images.map((image, index) => (
-          <div key={index} className="h-[400px]">
+          <div key={index} className="h-[800px]">
             <img
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
               src={image.imgUrl}
               alt="carousel"
             />
-            <div className="absolute bottom-5 left-10 p-8 bg-opacity-70 rounded-xl border-white border-2 bg-white text-black text-start">
+            <div className="absolute bottom-5 left-10 pt-5 pb-3 pl-5 pr-3 bg-opacity-70 rounded-xl border-white border-2 bg-white text-black text-start">
               <h3 className="text-xl text-primary font-EB">{image.title}</h3>
               <p className="text-gray">{image.description}</p>
             </div>
@@ -105,7 +105,7 @@ export default function MainCarousel() {
         ></div>
       </div>
 
-      <div className="absolute -bottom-[85px] w-full flex gap-2 my-4 justify-around">
+      <div className="absolute md:-bottom-[115px] lg:-bottom-[85px] w-full flex gap-2 my-4 justify-around">
         {images.map((image, index) => (
           <button
             key={index}

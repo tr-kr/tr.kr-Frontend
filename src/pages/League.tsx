@@ -1,53 +1,26 @@
 import React, { useState } from 'react';
+import Slider from 'react-slick';
+import CardSlider from '../components/CardSlider';
+import { Card, cards, workingAdultsCards } from '../data/data';
+const TITLE_STYLE = 'text-white text-4xl pt-4 px-4';
 
-const cards = [
-  { title: 'Card 1', content: 'This is card 1' },
-  { title: 'Card 2', content: 'This is card 2' },
-  { title: 'Card 3', content: 'This is card 3' },
-  { title: 'Card 4', content: 'This is card 4' },
-  { title: 'Card 5', content: 'This is card 5' },
-  { title: 'Card 6', content: 'This is card 6' },
-  { title: 'Card 7', content: 'This is card 7' },
-  { title: 'Card 8', content: 'This is card 8' },
-];
-
-const League = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const handlePrev = () => {
-    setActiveIndex(
-      (prevIndex) => (prevIndex - 4 + cards.length) % cards.length,
-    );
-  };
-
-  const handleNext = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 4) % cards.length);
-  };
-
-  const Card = ({ data }) => {
-    return (
-      <div className="border p-4">
-        <h2 className="text-xl">{data.title}</h2>
-        <p>{data.content}</p>
-      </div>
-    );
+export default function League() {
+  const settings = {
+    dots: false,
+    infinite: true,
+    arrows: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
   };
 
   return (
-    <div className="flex items-center">
-      <button className="p-4" onClick={handlePrev}>
-        Prev
-      </button>
-      <div className="grid grid-cols-2 gap-4">
-        {cards.slice(activeIndex, activeIndex + 4).map((card, index) => (
-          <Card key={index} data={card} />
-        ))}
-      </div>
-      <button className="p-4" onClick={handleNext}>
-        Next
-      </button>
-    </div>
+    <section className="bg-gray flex flex-col gap-1">
+      <h1 className={`${TITLE_STYLE}`}>대학교 게임 대회</h1>
+      <CardSlider cards={cards} settings={settings} />
+      <div className="h-[4px] bg-opacity-75" />
+      <h1 className={TITLE_STYLE}>직장인 PC방 대회</h1>
+      <CardSlider cards={workingAdultsCards} settings={settings} />
+    </section>
   );
-};
-
-export default League;
+}

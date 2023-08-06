@@ -5,6 +5,8 @@ module.exports = {
       colors: {
         primary: '#3F4FE1',
         gray: '#444444',
+        onReady: '#EF933E',
+        onClose: '#C23535',
       },
       animation: {
         fill: 'fill 4s linear infinite',
