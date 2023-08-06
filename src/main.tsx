@@ -4,7 +4,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.tsx';
 import Home from './pages/Home.tsx';
 import CompCreatePage from './pages/CompCreatePage';
-import './index.css';
+import RuleBook from './components/RuleBook/RuleBook.tsx'
+import ParticipatingTeam from './components/ParticipatingTeam/ParticipatingTeam.tsx'
+import './index.css'
 
 const router = createBrowserRouter([
   {
@@ -14,12 +16,20 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <Home />
       },
       {
         path: 'create-comps',
         element: <CompCreatePage />,
       },
+      {
+        path: 'rule-book', 
+        element: <RuleBook />
+      },
+      {
+        path: 'participating-team', 
+        element: <ParticipatingTeam />
+      }
     ],
   },
 ]);
