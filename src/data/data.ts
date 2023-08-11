@@ -1,4 +1,4 @@
-interface Card {
+export interface Card {
   title: string;
   place: string;
   startDate: string;
@@ -7,7 +7,7 @@ interface Card {
   status: string;
   imgUrl: string;
 }
-const cards: Card[] = [
+export const cards: Card[] = [
   {
     title: '인하대학교 옵치대회',
     place: '인하대학교',
@@ -50,7 +50,7 @@ const cards: Card[] = [
   },
 ];
 
-const workingAdultsCards: Card[] = [
+export const workingAdultsCards: Card[] = [
   {
     title: '서울 직장인 롤 대회',
     place: '강남 PC방',
