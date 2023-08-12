@@ -6,6 +6,7 @@ import Home from './pages/Home.tsx';
 import CompCreatePage from './pages/CompCreatePage';
 import RuleBook from './components/RuleBook/RuleBook.tsx'
 import ParticipatingTeam from './components/ParticipatingTeam/ParticipatingTeam.tsx'
+import Result from './components/Result/Result.tsx'
 import './index.css'
 
 const router = createBrowserRouter([
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: 'participating-team', 
         element: <ParticipatingTeam />
+      },
+      {
+        path: 'result', 
+        element: <Result />
       }
     ],
   },
