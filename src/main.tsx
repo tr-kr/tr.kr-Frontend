@@ -1,8 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.tsx';
 import Home from './pages/Home.tsx';
+import './index.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import League from './pages/League.tsx';
 import CompCreatePage from './pages/CompCreatePage';
 import RuleBook from './components/RuleBook/RuleBook.tsx'
 import ParticipatingTeam from './components/ParticipatingTeam/ParticipatingTeam.tsx'
@@ -13,12 +17,12 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    // errorElement: <Error/>,
     children: [
       {
         index: true,
         element: <Home />
       },
+      { path: '/league', element: <League /> },
       {
         path: 'create-comps',
         element: <CompCreatePage />,
