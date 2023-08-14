@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-import Slider from 'react-slick';
 import CardSlider from '../components/CardSlider';
-import { Card, cards, workingAdultsCards } from '../data/data';
+import { cards, workingAdultsCards } from '../data/data';
 const TITLE_STYLE = 'text-white text-4xl pt-4 px-4';
 
 export default function League() {
