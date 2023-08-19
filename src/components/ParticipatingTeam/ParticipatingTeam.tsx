@@ -7,7 +7,7 @@ const ParticipatingTeam = () => {
     const [teamNames, setTeamNames] = useState<string[]>([]);
 
     useEffect(() => {
-        axios.get("http://3.34.170.230/api/competition/entry/96")
+        axios.get("http://3.34.170.230/api/competition/entry/1")
             .then(response => {
                 const responseData = response.data;
                 const names = responseData.result.map((team: { team_name: string }) => team.team_name);
@@ -23,18 +23,18 @@ const ParticipatingTeam = () => {
             <div className="flex justify-between">
                 <div className="text-white text-[40px]">VX OPEN CHALLENGE</div>
                 <div className="flex items-center">
-                    <button className="w-[216.16px] h-[34.53px] text-white text-[20px] ml-auto rounded-[25px] border-[3px] border-white mr-[10px]">
+                    <div className="w-[216.16px] h-[34.53px] text-white text-[20px] ml-auto rounded-[25px] border-[3px] border-white mr-[10px] text-center">
                         싱글 엘레미네이션
-                    </button>
-                    <button className="w-[89.4px] h-[34.53px] bg-[#D9D9D9] text-white text-[20px] ml-2 rounded-[25px] border-[3px] border-white bg-opacity-20">
+                    </div>
+                    <div className="w-[89.4px] h-[34.53px] bg-[#D9D9D9] text-white text-[20px] ml-2 rounded-[25px] border-[3px] border-white bg-opacity-20 text-center">
                         6팀
-                    </button>
+                    </div>
                 </div>
             </div>
             <div className="flex mt-[10px]">
-                <button className="w-[104.68px] h-[34.53px] bg-[#3f4fe1] text-white text-[20px] rounded-[25px] border-[3px] border-white">
+                <div className="w-[104.68px] h-[34.53px] bg-[#3f4fe1] text-white text-[20px] rounded-[25px] border-[3px] border-white text-center">
                     진행중
-                </button>
+                </div>
                 <div className="text-white text-[24px] ml-[15px]">
                     20XX.XX.XX~XX.XX
                 </div>
