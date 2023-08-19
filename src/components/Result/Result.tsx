@@ -12,9 +12,9 @@ const Result = () => {
                     <button className="w-[216.16px] h-[34.53px] text-white text-[20px] ml-auto rounded-[25px] border-[3px] border-white mr-[10px]">
                         싱글 엘레미네이션
                     </button>
-                    <button className="w-[89.4px] h-[34.53px] bg-[#D9D9D9] text-white text-[20px] ml-2 rounded-[25px] border-[3px] border-white bg-opacity-20">
+                    <div className="w-[89.4px] h-[34.53px] bg-[#D9D9D9] text-white text-[20px] ml-2 rounded-[25px] border-[3px] border-white bg-opacity-20 text-center">
                         6팀
-                    </button>
+                    </div>
                 </div>
             </div>
             <div className="flex mt-[10px]">
