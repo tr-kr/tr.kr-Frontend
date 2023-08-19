@@ -23,9 +23,9 @@ const ParticipatingTeam = () => {
             <div className="flex justify-between">
                 <div className="text-white text-[40px]">VX OPEN CHALLENGE</div>
                 <div className="flex items-center">
-                    <div className="w-[216.16px] h-[34.53px] text-white text-[20px] ml-auto rounded-[25px] border-[3px] border-white mr-[10px] text-center">
+                    <button className="w-[216.16px] h-[34.53px] text-white text-[20px] ml-auto rounded-[25px] border-[3px] border-white mr-[10px]">
                         싱글 엘레미네이션
-                    </div>
+                    </button>
                     <div className="w-[89.4px] h-[34.53px] bg-[#D9D9D9] text-white text-[20px] ml-2 rounded-[25px] border-[3px] border-white bg-opacity-20 text-center">
                         6팀
                     </div>
