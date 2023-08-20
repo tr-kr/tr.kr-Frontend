@@ -1,23 +1,9 @@
-import banner from '../../image/banner.png'
+
 const CompOutline = () => {
     const backendInfo = ['ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ'];
 
     return (
         <div className="h-screen">
-            {/* {배너 관련 코드} */}
-            <div className="w-full h-1/20 bg-[#3F4FE1]">.</div>
-            <div>
-                <div className="w-full h-[504px] bg-cover bg-center relative">
-                    {/* 배경 이미지 설정 */}
-                    <img src={banner} alt="배너" className="w-full h-full" />
-
-                    {/* 맨 아래쪽에 겹치는 박스 */}
-                    <div className="flex items-center absolute bottom-0 left-0 w-full h-[139px] bg-black bg-opacity-50 text-[64px] text-white font-sans font-extrabold pl-10">
-                        <h1 className="drop-shadow-lg">VX OPEN CHALLENGE</h1>
-                    </div>
-                </div>
-            </div>
-            {/* {배너 관련 코드} */}
             <div className="mt-[5%] ml-[5%]">
                 <div className="flex mt-[5%] ml-[5%]">
                     <div className="w-[83px] h-[43px] bg-white text-[32px] text-center text-[#3F4FE1]">

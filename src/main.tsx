@@ -6,6 +6,7 @@ import Home from './pages/Home.tsx';
 import RuleBook from './components/RuleBook/RuleBook.tsx'
 import ParticipatingTeam from './components/ParticipatingTeam/ParticipatingTeam.tsx'
 import Result from './components/Result/Result.tsx'
+import Banner from './components/Banner/Banner.tsx'
 import './index.css'
 import CompOutline from './components/CompOutline/CompOutline.tsx';
 
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />
+      },
+      {
+        path: 'banner', 
+        element: <Banner />
       },
       {
         path: 'rule-book', 
