@@ -10,18 +10,23 @@ const Banner = () => {
     const [active, setActive] = useState(navItems[0]);
 
     let activeComponent;
+    let activePageName;
     switch (active) {
         case '대회 개요':
             activeComponent = <CompOutline />;
+            activePageName = "대회 상세 페이지"
             break;
         case '경기 규정':
             activeComponent = <RuleBook />;
+            activePageName = "대회 상세 페이지"
             break;
         case '참가팀':
             activeComponent = <ParticipatingTeam />;
+            activePageName = "참가팀"
             break;
         case '결과':
             activeComponent = <Result />;
+            activePageName = "결과"
             break;
         default:
             activeComponent = null;
@@ -33,10 +38,10 @@ const Banner = () => {
             <div className="w-full h-[57px] bg-[#3F4FE1] text-white text-[20px] p-3">
                 <span className="ml-[30px]">VX OPEN CHLLENGE</span>
                 <span className="h-full border-r border-white mx-4"></span>
-                <span className="">대회 상세 페이지</span>
+                <span className="">{activePageName}</span>
             </div>
-            <div>
-                <div className="w-full h-[504px] bg-cover bg-center relative">
+            <div className="relative">
+                <div className="w-full h-[448px] bg-cover bg-center relative">
                     {/* 배경 이미지 설정 */}
                     <img src={banner} alt="배너" className="w-full h-full" />
 
@@ -45,6 +50,18 @@ const Banner = () => {
                         <h1 className="drop-shadow-lg">VX OPEN CHALLENGE</h1>
                     </div>
                 </div>
+                {/* {접수마감 박스} */}
+                <div className="absolute top-[17px] right-[52px] w-[278px] h-auto rounded-[7px] bg-[#2C2C2C] border-[#C27935] border-[3px] text-center">
+                    <div className="text-[24px] text-[#C27935] mt-[20px]">접수마감까지</div>
+                    <div className="text-[40px] text-white">00:00:00</div>
+                    <hr className="w-[219px] h-[1px] bg-white border-none mx-[28px] mt-[15px]"/>
+                    <div className="text-[20px] text-[#8B8B8B] mt-[15px]">접수팀</div>
+                    <div className="text-[32px] text-white">24</div>
+                    <div className="text-[20px] text-[#8B8B8B] mt-[10px]">총 상금</div>
+                    <div className="text-[32px] text-white mb-[25px]">150,000</div>
+                </div>
+                <div className="absolute top-[365px] right-[52px] w-[278px] h-[58px] rounded-[7px] bg-[#C27935] border-[#2C2C2C] border-[3px] text-center text-white text-[24px] p-2">준비중</div>
+                {/* {접수마감 박스} */}
             </div>
             {/* {배너 관련 코드} */}
             {/* 네비게이션 링크 */}
