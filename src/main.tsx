@@ -7,6 +7,8 @@ import CompCreatePage from './pages/CompCreatePage';
 import RuleBook from './components/RuleBook/RuleBook.tsx'
 import ParticipatingTeam from './components/ParticipatingTeam/ParticipatingTeam.tsx'
 import './index.css'
+import Login from './components/Login/Login.tsx';
+import Signup from './components/Login/Signup.tsx';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +31,14 @@ const router = createBrowserRouter([
       {
         path: 'participating-team', 
         element: <ParticipatingTeam />
+      },
+      {
+        path: 'login', 
+        element: <Login />
+      },
+      {
+        path: 'signup', 
+        element: <Signup />
       }
     ],
   },
