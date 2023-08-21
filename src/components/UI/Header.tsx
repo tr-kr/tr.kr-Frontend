@@ -37,6 +37,7 @@ const Header = () => {
           <li
             key={item}
             className={`
+             cursor-pointer
             ${item === active && 'border-b-4 border-primary'}
               py-4`}
             onClick={() => handleNavigation(item)}
