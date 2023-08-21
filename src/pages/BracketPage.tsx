@@ -1,5 +1,6 @@
-import Accordion from '../components/UI/Accordion';
 import { useState } from 'react';
+import Bracket from '../components/Bracket/Bracket';
+import Accordion from '../components/UI/Accordion';
 
 const BracketPage = () => {
   const [modes, setModes] = useState([
@@ -21,7 +22,7 @@ const BracketPage = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="flex flex-col justify-between items-center w-full h-[800px]">
       <div className="flex justify-center items-center w-full mt-10">
         <div className="flex justify-between items-center w-[70%]">
           <div className="flex flex-col justify-between items-center h-[130px]">
@@ -37,7 +38,7 @@ const BracketPage = () => {
               </div>
             </div>
           </div>
-          <div className="flex justify-between items-start w-[330px] h-[100px] pt-12">
+          <div className="flex justify-between items-start w-[330px] h-[100px]">
             <Accordion title={modes[0]}>
               <div
                 className="font-R text-[20px] font-[400] text-[#ffffff99]"
@@ -53,10 +54,13 @@ const BracketPage = () => {
               </div>
             </Accordion>
             <div className="flex justify-center items-center w-[90px] h-[35px] rounded-[25px] border-[3px] border-solid border-[#D9d9D9] bg-[#d9d9d938] font-R text-[20px] font-[400] text-white">
-              6팀
+              4팀
             </div>
           </div>
         </div>
+      </div>
+      <div className="flex justify-center items-center w-full">
+        <Bracket />
       </div>
     </div>
   );
