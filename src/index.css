@@ -10,31 +10,32 @@ body {
 }
 
 :root {
-    margin: 0 auto;
-}
-
-
-@font-face {
-    font-family: 'f_eb';
-    src: url('/src/fonts/NanumSquareEB.ttf');
+  width: 100%;
+  margin: 0 auto;
 }
 
 @font-face {
-    font-family: 'f_l';
-    src: url('/src/fonts/NanumSquareL.ttf');
+  font-family: 'f_eb';
+  src: url('/src/fonts/NanumSquareEB.ttf');
 }
 
 @font-face {
-    font-family: 'f_r';
-    src: url('/src/fonts/NanumSquareR.ttf');
+  font-family: 'f_l';
+  src: url('/src/fonts/NanumSquareL.ttf');
 }
 
 @font-face {
-    font-family: 'f_b';
-    src: url('/src/fonts/NanumSquareB.ttf');
+  font-family: 'f_r';
+  src: url('/src/fonts/NanumSquareR.ttf');
+}
+
+@font-face {
+  font-family: 'f_b';
+  src: url('/src/fonts/NanumSquareB.ttf');
 }
 
 body {
+
     font-family: 'f_r';
 }
 
@@ -85,3 +86,23 @@ body {
 /* .react-calendar__tile {
     background-color: #616161;
 } */
+
+  font-family: 'f_r';
+}
+
+#progressbar .slick-slide {
+  margin: 0 10px;
+}
+
+@keyframes fill {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-fill {
+  animation: fill 4s linear infinite;
+}
