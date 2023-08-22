@@ -16,7 +16,7 @@ const MyPage = () => {
                 </div>
             </div>
             <div className="w-full h-[649px] bg-[#E7E7E7]">
-            </div>a
+            </div>
         </div>
     )
 }
