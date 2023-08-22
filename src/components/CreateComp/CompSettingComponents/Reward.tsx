@@ -6,8 +6,8 @@ const Reward = () => {
       <div className="h-[227px] relative">
         <Identifier title="보상" color="primary" />
       </div>
-      <form className="flex flex-col ml-[25px]">
-        <div className="w-[450px] h-auto mb-1">
+      <form className="flex flex-col w-full ml-[25px]">
+        <div className="w-full h-auto mb-1">
           <div className="mb-[22px]">
             <div className="font-L text-white text-[20px] mb-[7px]">1위</div>
             <div className="flex justify-between items-center w-full">
