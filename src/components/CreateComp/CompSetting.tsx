@@ -182,14 +182,19 @@ const CompSetting = () => {
         </div>
       </div>
       <div className="flex flex-col justify-center items-center">
-        <div className="mb-[16px]">
-          <Button buttonTitle="대회 등록하기" color={true} />
+        <div className="mb-[16px] w-[300px] h-[62px]">
+          <Button buttonTitle="대회 등록하기" color={true} bigText={true} />
         </div>
-        <div className="mb-[72px]">
-          <Button buttonTitle="대회 수정하기" color={false} />
+        <div className="mb-[72px] w-[300px] h-[62px]">
+          <Button buttonTitle="대회 수정하기" color={false} bigText={true} />
         </div>
-        <div>
-          <Button buttonTitle="대회 임시저장" color={true} disabled={true} />
+        <div className="w-[300px] h-[62px]">
+          <Button
+            buttonTitle="대회 임시저장"
+            color={true}
+            bigText={true}
+            disabled={true}
+          />
         </div>
       </div>
     </div>
