@@ -15,6 +15,7 @@ import Result from './components/Result/Result.tsx'
 import './index.css'
 import BracketPage from './pages/BracketPage.tsx';
 import ParticipatePage from './pages/ParticipatePage.tsx';
+import Banner from './components/Banner/Banner.tsx';
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: 'comp-outline',
         element: <CompOutline />
+      },
+      {
+        path: 'banner',
+        element: <Banner />
       }
     ],
   },
