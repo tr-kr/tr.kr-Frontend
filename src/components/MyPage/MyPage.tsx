@@ -15,12 +15,24 @@ const MyPage = () => {
                     </div>
                 </div>
             </div>
-            <div className="w-full h-[649px] bg-[#E7E7E7]">
+            <div className="w-full h-[649px] bg-[#E7E7E7] pl-[28%]">
                 <div className="w-full h-[210px] p-[25px] flex">
                     <div className="text-[36px] mr-2">회원 정보</div>
-                    <div className="h-161px border-r-[3px] border-black mr-[30px]"></div>
+                    <div className="h-[190px] border-r-[3px] border-black mr-[30px]"></div>
                     <div className="flex">
-                        <div>닉네임</div><input className="w-[287px] h-[25px] rounded-[7px]"></input><button>닉네임 변경</button>
+                        <div>
+                            <div className="flex">
+                                <div className="text-[20px] mr-[20px]">닉네임</div><input className="w-[287px] h-[25px] rounded-[7px] mr-[12px]"></input>
+                                <button className="w-[114px] h-[25px] text-[16px] text-white rounded-[7px] bg-[#3543C2]">닉네임 변경</button>
+                            </div>
+                            <div className="flex">
+                                <div className="text-[20px] mr-[20px]">이메일</div><div className="w-[287px] h-[25px] rounded-[7px] mr-[12px] bg-[#BBBBBB]"></div>
+                            </div>
+                            <div className="flex">
+                                <div className="text-[20px] mr-[20px]">닉네임</div><input className="w-[287px] h-[25px] rounded-[7px] mr-[12px]"></input>
+                                <button className="w-[114px] h-[25px] text-[16px] text-white rounded-[7px] bg-[#3543C2]">닉네임 변경</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
