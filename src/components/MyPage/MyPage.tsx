@@ -6,8 +6,8 @@ const MyPage = () => {
             <div className="w-full h-[57px] bg-[#3F4FE1] text-white text-[20px] p-3">
                 <span className="ml-[30px]">마이 페이지</span>
             </div>
-            <div className="w-full h-[169px] bg-[#2C2C2C] text-center flex justify-center"> 
-                <div className="flex items-center"> 
+            <div className="w-full h-[169px] bg-[#2C2C2C] text-center flex justify-center">
+                <div className="flex items-center">
                     <img className="p-3" src={person} alt="Person"></img>
                     <div className="ml-3">
                         <span className="text-[64px] text-white mr-[40px]">닉네임</span>
@@ -16,6 +16,13 @@ const MyPage = () => {
                 </div>
             </div>
             <div className="w-full h-[649px] bg-[#E7E7E7]">
+                <div className="w-full h-[210px] p-[25px] flex">
+                    <div className="text-[36px] mr-2">회원 정보</div>
+                    <div className="h-161px border-r-[3px] border-black mr-[30px]"></div>
+                    <div className="flex">
+                        <div>닉네임</div><input className="w-[287px] h-[25px] rounded-[7px]"></input><button>닉네임 변경</button>
+                    </div>
+                </div>
             </div>
         </div>
     )
