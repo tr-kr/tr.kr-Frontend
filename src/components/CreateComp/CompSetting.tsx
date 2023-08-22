@@ -1,4 +1,3 @@
-import Identifier from '../UI/Identifier';
 import Button from '../UI/Button';
 import Information from './CompSettingComponents/Information';
 import Period from './CompSettingComponents/Period';
