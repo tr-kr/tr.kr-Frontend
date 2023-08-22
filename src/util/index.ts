@@ -44,7 +44,7 @@ export async function getCompetition(): Promise<Competition[]> {
       updated_at: formatDateToMonthDay(comp.updated_at),
       dead_date: formatDateToMonthDay(comp.dead_date),
     }));
-
+    console.log(formattedData);
     return formattedData;
   } catch (error) {
     console.error(error);

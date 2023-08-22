@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import Slider from 'react-slick';
 import { Competition } from '../util';
 interface CardSliderProps {

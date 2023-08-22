@@ -2182,6 +2182,11 @@ synckit@^0.8.5:
     "@pkgr/utils" "^2.3.1"
     tslib "^2.5.0"
 
+tailwindcss-animatecss@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/tailwindcss-animatecss/-/tailwindcss-animatecss-3.0.4.tgz#e36f6921abb062503511019b539ae91a14999a26"
+  integrity sha512-Fu8RK6qZ625VafKciffYttfanG6rOQPkv4ox6FvIfCAJZzGoKjnExiy5Lb4IEQxJhSaazNXbUvVyhPjGaZ2EcA==
+
 tailwindcss@latest:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.3.3.tgz#90da807393a2859189e48e9e7000e6880a736daf"

@@ -1,9 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+type RoutingType = {
+  '서비스 소개': string;
+  '대회 탐색': string;
+  '대회 생성': string;
+};
 
 const Header = () => {
   const navItems: string[] = ['서비스 소개', '대회 탐색', '대회 생성'];
-  const [routing, setRouting] = useState({
+  const [routing, setRouting] = useState<RoutingType>({
     '서비스 소개': '/',
     '대회 탐색': '/league',
     '대회 생성': '/create',
@@ -13,13 +18,13 @@ const Header = () => {
   const location = useLocation();
   useEffect(() => {
     for (const item in routing) {
-      if (routing[item] === location.pathname) {
+      if (routing[item as keyof RoutingType] === location.pathname) {
         setActive(item);
         break;
       }
     }
   }, [location.pathname, routing]);
-  const handleNavigation = (item: string) => {
+  const handleNavigation = (item: keyof RoutingType) => {
     setActive(item);
     console.log(location);
     navigate(`${routing[item]}`);
@@ -37,16 +42,28 @@ const Header = () => {
           <li
             key={item}
             className={`
-             cursor-pointer
-            ${item === active && 'border-b-4 border-primary'}
-              py-4`}
-            onClick={() => handleNavigation(item)}
+                cursor-pointer relative 
+                transform hover:scale-105 hover:text-primary 
+                py-4
+            `}
+            onClick={() => handleNavigation(item as keyof RoutingType)}
           >
-            {item}
+            <span>{item}</span>
+            <span
+              className={`
+                    absolute bottom-0 left-0 empty-content block 
+                    ${item === active ? 'w-full' : 'w-0'} 
+                    h-1 bg-primary transition-width duration-300 ease-in-out
+                `}
+            ></span>
           </li>
         ))}
       </ul>
-      <button className="px-4 py-2 text-lg font-bold text-white bg-transparent border-2 border-primary rounded-md">
+
+      <button
+        className="px-4 py-2 text-lg font-bold text-white bg-transparent border-2 border-primary rounded-md 
+               transition-all duration-300 ease-in-out hover:bg-primary hover:text-black"
+      >
         로그인
       </button>
     </header>
