@@ -5,10 +5,9 @@ const Rule = () => {
   const [pdfFile, setPdfFile]: any = useState();
 
   const saveUploadedPdfFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // 현재는 업로드된 파일의 이름만 가져옴. 백엔드 연동시 로직 수정 필요.
     if (e.target.files) {
       const fileName = e.target.files[0].name;
-      // const parsedFileName = fileName.replace(/\s/g, '_');
-      // setPdfFile(`before:content-['${parsedFileName}']`);
       setPdfFile(fileName);
     }
   };
