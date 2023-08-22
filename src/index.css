@@ -78,7 +78,8 @@ body {
 }
 
 .highlight {
-    background: #D9D9D9;
+    background-color: #5E5E5E !important;
+    border-radius: 50%;
  }
 
 /* .react-calendar__tile {
