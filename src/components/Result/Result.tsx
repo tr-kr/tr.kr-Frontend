@@ -26,15 +26,17 @@ const Result = () => {
                 </div>
             </div>
             <div className="flex justify-center items-center">
-                <div className="w-[55%] mt-[30px] bg-[#D9D9D9] bg-opacity-25 rounded-lg space-y-2 p-5">
-                    {backendData.map((item, index) => (
-                        <React.Fragment key={index}>
-                            <div className="text-white text-[20px] text-center">
-                                {index + 1}.  {item}
-                            </div>
-                            {index < backendData.length - 1 && <div className="border-b mr-[5px] ml-[5px]"></div>}
-                        </React.Fragment>
-                    ))}
+                <div className="flex w-[55%] mt-[30px] bg-[#D9D9D9] bg-opacity-25 rounded-lg p-5 text-white text-[20px]">
+                    <span className="grid grid-cols-1 w-[53px] h-52 border-r-2 text-center">
+                        {backendData.map((data, index) => (
+                            <div key={index} className={`${index !== backendData.length - 1 ? "border-b-[1px]" : ""}`} >{index + 1}</div>
+                        ))}
+                    </span>
+                    <span className="grid grid-cols-1 w-full text-center">
+                        {backendData.map((data, index) => (
+                           <div key={data} className={index !== backendData.length - 1 ? "border-b-[1px]" : ""}>{data}</div>
+                        ))}
+                    </span>
                 </div>
             </div>
         </div>

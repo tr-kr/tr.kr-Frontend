@@ -10,31 +10,102 @@ body {
 }
 
 :root {
-    margin: 0 auto;
-}
-
-
-
-@font-face {
-    font-family: 'f_eb';
-    src: url('/src/fonts/NanumSquareEB.ttf');
+  width: 100%;
+  margin: 0 auto;
 }
 
 @font-face {
-    font-family: 'f_l';
-    src: url('/src/fonts/NanumSquareL.ttf');
+  font-family: 'f_eb';
+  src: url('/src/fonts/NanumSquareEB.ttf');
 }
 
 @font-face {
-    font-family: 'f_r';
-    src: url('/src/fonts/NanumSquareR.ttf');
+  font-family: 'f_l';
+  src: url('/src/fonts/NanumSquareL.ttf');
 }
 
 @font-face {
-    font-family: 'f_b';
-    src: url('/src/fonts/NanumSquareB.ttf');
+  font-family: 'f_r';
+  src: url('/src/fonts/NanumSquareR.ttf');
+}
+
+@font-face {
+  font-family: 'f_b';
+  src: url('/src/fonts/NanumSquareB.ttf');
 }
 
 body {
+
     font-family: 'f_r';
+}
+
+.react-calendar {
+  max-width: 100% !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.react-calendar__tile--now {
+  background: transparent !important;
+}
+
+.scroll-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background-color: #D9D9D9;
+    border-radius: 7px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background-color: #5E5E5E;
+    border-radius: 7px;
+}
+
+.scroll-container::-webkit-scrollbar-corner {
+    display: none;
+}
+
+.react-calendar__month-view__weekdays__weekday abbr {
+    text-decoration: none;
+}
+
+  .react-calendar__month-view__days__day:not(.react-calendar__month-view__days__day--weekend)
+  + .react-calendar__month-view__days__day--weekend:not(
+    .react-calendar__month-view__days__day--neighboringMonth
+  ) {
+    color: #3F4FE1 !important;
+}
+
+.react-calendar__navigation__prev-button,
+.react-calendar__navigation__next-button {
+  color: white;
+}
+
+.react-calendar__navigation__prev2-button,
+.react-calendar__navigation__next2-button {
+  display: none;
+}
+
+.highlight {
+    background-color: #5E5E5E !important;
+    border-radius: 50%;
+ }
+
+#progressbar .slick-slide {
+  margin: 0 10px;
+}
+
+@keyframes fill {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-fill {
+  animation: fill 4s linear infinite;
 }
