@@ -11,7 +11,7 @@ const TeamMembersInput = ({ children }: Props) => {
         <div className="w-[50px] text-[20px] text-white font-R text-right">
           {children}
         </div>
-        <div className="before:contents-[''] before:absolute before:top-0 before:-right-4 before:w-[3px] before:h-full before:bg-white" />
+        <div className="before:content-[''] before:absolute before:top-0 before:-right-4 before:w-[3px] before:h-full before:bg-white" />
       </div>
       <input
         type="text"
