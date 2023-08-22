@@ -39,6 +39,16 @@ body {
     font-family: 'f_r';
 }
 
+.react-calendar {
+  max-width: 100% !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.react-calendar__tile--now {
+  background: transparent !important;
+}
+
 .scroll-container::-webkit-scrollbar {
     width: 6px;
 }
@@ -82,10 +92,6 @@ body {
     background-color: #5E5E5E !important;
     border-radius: 50%;
  }
-
- body {
-  font-family: 'f_r';
-}
 
 #progressbar .slick-slide {
   margin: 0 10px;
