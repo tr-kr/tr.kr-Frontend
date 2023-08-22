@@ -15,12 +15,12 @@ const Period = () => {
             <div className="flex justify-between items-center w-full">
               <input
                 type="date"
-                className="w-[246px] h-[36px] pl-[16px] font-R text-[#9F9F9F] rounded border border-solid border-[#fff] bg-[#d9d9d91a]"
+                className="w-[246px] h-[36px] pl-[16px] pr-[16px] font-R text-[#9F9F9F] rounded border border-solid border-[#fff] bg-[#d9d9d91a]"
               />
               <div className="font-R text-white text-[24px]">~</div>
               <input
                 type="date"
-                className="w-[246px] h-[36px] pl-[16px] font-R text-[#9F9F9F] rounded border border-solid border-[#fff] bg-[#d9d9d91a]"
+                className="w-[246px] h-[36px] pl-[16px] pr-[16px] font-R text-[#9F9F9F] rounded border border-solid border-[#fff] bg-[#d9d9d91a]"
               />
             </div>
           </div>
@@ -31,12 +31,12 @@ const Period = () => {
             <div className="flex justify-between items-center w-full">
               <input
                 type="date"
-                className="w-[246px] h-[36px] pl-[16px] font-R text-[#9F9F9F] rounded border border-solid border-[#fff] bg-[#d9d9d91a]"
+                className="w-[246px] h-[36px] pl-[16px] pr-[16px] font-R text-[#9F9F9F] rounded border border-solid border-[#fff] bg-[#d9d9d91a]"
               />
               <div className="font-R text-white text-[24px]">~</div>
               <input
                 type="date"
-                className="w-[246px] h-[36px] pl-[16px] font-R text-[#9F9F9F] rounded border border-solid border-[#fff] bg-[#d9d9d91a]"
+                className="w-[246px] h-[36px] pl-[16px] pr-[16px] font-R text-[#9F9F9F] rounded border border-solid border-[#fff] bg-[#d9d9d91a]"
               />
             </div>
           </div>
