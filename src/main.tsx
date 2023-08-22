@@ -13,6 +13,7 @@ import ParticipatingTeam from './components/ParticipatingTeam/ParticipatingTeam.
 import Result from './components/Result/Result.tsx'
 import './index.css'
 import BracketPage from './pages/BracketPage.tsx';
+import ParticipatePage from './pages/ParticipatePage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: 'bracket',
         element: <BracketPage />,
+      },
+      {
+        path: 'participate',
+        element: <ParticipatePage />,
       },
     ],
   },
