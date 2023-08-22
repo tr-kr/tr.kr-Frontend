@@ -12,6 +12,7 @@ import RuleBook from './components/RuleBook/RuleBook.tsx'
 import ParticipatingTeam from './components/ParticipatingTeam/ParticipatingTeam.tsx'
 import Result from './components/Result/Result.tsx'
 import './index.css'
+import BracketPage from './pages/BracketPage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />
+        element: <Home />,
       },
       { path: '/league', element: <League /> },
       {
@@ -28,17 +29,21 @@ const router = createBrowserRouter([
         element: <CompCreatePage />,
       },
       {
-        path: 'rule-book', 
-        element: <RuleBook />
+        path: 'rule-book',
+        element: <RuleBook />,
       },
       {
-        path: 'participating-team', 
-        element: <ParticipatingTeam />
+        path: 'participating-team',
+        element: <ParticipatingTeam />,
       },
       {
-        path: 'result', 
-        element: <Result />
-      }
+        path: 'result',
+        element: <Result />,
+      },
+      {
+        path: 'bracket',
+        element: <BracketPage />,
+      },
     ],
   },
 ]);
