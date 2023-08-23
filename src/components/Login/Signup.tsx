@@ -46,7 +46,7 @@ const Signup = () => {
                 // 첫번째 요청때 남아있던 결과가 두번째 요청때도 똑같이 표시되는
                 // 문제가 있을 수 있다.
 
-                axios.post("http://172.30.1.99:3000/api/signup", { email, nickname, password,}
+                axios.post("http://172.30.1.79:3000/api/signup", { email, nickname, password,}
                 )
                 .then((response) => {
                     // 성공시
@@ -160,9 +160,9 @@ const Signup = () => {
                         }}>가입 완료</button>
                     </div>
                 </form>
-                <div className="mt-4 flex justify-evenly items-center text-white">
-                    이미 회원이신가요?&nbsp;
-                    <Link to="/login">로그인 하러가기</Link>
+                <div className="mt-4 flex justify-center items-center text-white mb-16">
+                    이미 회원이신가요?  &nbsp;
+                    <Link to="/login" className="text-blue-600">로그인 하러가기</Link>
                 </div>
             </div>
 
