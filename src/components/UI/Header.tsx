@@ -7,7 +7,26 @@ type RoutingType = {
 };
 
 const Header = () => {
-  const navItems: string[] = ['서비스 소개', '대회 탐색', '대회 생성'];
+  const [navItems, setNavItems] = useState<string[]>([
+    '서비스 소개',
+    '대회 탐색',
+    '대회 생성',
+  ]);
+  const [isLogin, setIsLogin] = useState<boolean>(false);
+  useEffect(() => {
+    setIsLogin(localStorage.getItem('token') ? true : false);
+  }, []);
+  useEffect(() => {
+    if (isLogin) {
+      setNavItems((prevItems) => [...prevItems, '마이페이지', '참여한 대회']);
+      setRouting((prevRouting) => ({
+        ...prevRouting,
+        마이페이지: '/my-page',
+        '참여한 대회': `/mypage/league`,
+      }));
+    }
+  }, [isLogin]);
+
   const [routing, setRouting] = useState<RoutingType>({
     '서비스 소개': '/',
     '대회 탐색': '/league',
@@ -65,7 +84,7 @@ const Header = () => {
           navigate('/login');
         }}
       >
-        로그인
+        {isLogin ? '로그인' : '로그아웃'}
       </button>
     </header>
   );
