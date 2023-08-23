@@ -47,7 +47,7 @@ const router = createBrowserRouter([
       },
 
       {
-        path: '/mypage/league/:id',
+        path: '/mypage/league',
         element: <MyLeague />,
       },
       {

@@ -1,12 +1,10 @@
 import { useState } from 'react';
-import logo from '../../assets/logo.jpg'
+import logo from '../../assets/logo.jpg';
 import axios from 'axios';
 
-
-
 const Login = () => {
-    const [loginEmail, setLoginEmail] = useState('');
-    const [loginPassword, setLoginPassword] = useState('');
+  const [loginEmail, setLoginEmail] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
 
     const handleLogin = () => {
         const userData = {
@@ -35,21 +33,44 @@ const Login = () => {
             });
     };
 
+    axios
+      .post('http://172.30.1.79:3000/api/login', userData)
+      .then((response) => {
+        response = response.data;
+        localStorage.clear();
+        if (response.data.isSuccess === false) {
+          alert('실패');
+          return;
+        } else {
+          // localStorage.setItem('id', response.data.useridx)
+          localStorage.setItem('token', response.data.jwt);
+          //window.location.replace('/league')
+          alert('성공~~');
+          console.log('Login successful:', response.data);
+        }
+      })
+      .catch((error) => {
+        console.error('Login error:', error);
+      });
+  };
 
-    return (
-        <div className="min-h-screen bg-gray-50 flex flex-col justify-center">
-            <div className="h-screen w-screen relative flex justify-center items-center bg-[url('./assets/lolespots.svg')]">
-            
-                <div className="max-w-sm w-full mx-auto py-10 px-10 absolute mb-20 backdrop-blur-xl rounded-3xl p-8">
-                    <div className="max-w-md w-full mx-auto flex justify-center items-center">
-                        <div className="w-24 h-24 bg-gray-50 rounded-30 mr-6">
-                            <img src={logo} className="w-full h-full object-cover"/>
-                        </div>
-                        <div className="flex flex-col items-start">
-                            <div className="text-center font-medium text-3xl text-white">e스포츠 대회</div>
-                            <div className="text-7xl font-bold text-gray-900 text-center text-white">TR.KR</div>
-                        </div>
-                    </div>
+  return (
+    <div className="min-h-screen bg-gray-50 flex flex-col justify-center">
+      <div className="h-screen w-screen relative flex justify-center items-center bg-[url('./assets/lolespots.svg')] bg-no-repeat bg-cover">
+        <div className="max-w-sm w-full mx-auto py-10 px-10 absolute mb-20 backdrop-blur-lg border-4 border-primary shadow-xl rounded-2xl p-8">
+          <div className="max-w-md w-full mx-auto flex justify-center items-center">
+            <div className="w-24 h-24 bg-gray-50 rounded-30 mr-6">
+              <img src={logo} className="w-full h-full object-cover" />
+            </div>
+            <div className="flex flex-col items-start">
+              <div className="text-center font-medium text-3xl text-white">
+                e스포츠 대회
+              </div>
+              <div className="text-7xl font-bold text-gray-900 text-center text-white">
+                TR.KR
+              </div>
+            </div>
+          </div>
 
                     <form id="container" className="space-y-6 mt-10">
                         <div>
@@ -73,8 +94,11 @@ const Login = () => {
                     </form>
                 </div>
             </div>
+          </form>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Login;

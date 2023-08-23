@@ -33,7 +33,7 @@ export interface Competition {
 }
 
 export interface MyCompetition extends Competition {
-  ranking: number;
+  grade: string;
 }
 
 export interface CompetitionResponse {
@@ -116,12 +116,14 @@ export async function getCompetition(): Promise<Competition[]> {
   }
 }
 
-export async function getCompetitionById(id: string): Promise<MyCompetition[]> {
+export async function getCompetitionById(
+  token: string,
+): Promise<MyCompetition[]> {
   try {
     const response: AxiosResponse<MyCompetitionResponse> = await axios.get(
-      `${BASE_URL}/user/playList/${id}`,
+      `${BASE_URL}/user/playList?token=${token}`,
     );
-    console.log('BYID ', response.data.result);
+    console.log('BYID ', response);
     return response.data.result;
   } catch (error) {
     console.error(error);
@@ -130,13 +132,13 @@ export async function getCompetitionById(id: string): Promise<MyCompetition[]> {
 }
 
 export async function getHostCompetitionById(
-  id: number,
+  token: number,
 ): Promise<MyCompetition[]> {
   try {
     const response: AxiosResponse<MyCompetitionResponse> = await axios.get(
-      `${BASE_URL}/user/hostList/${id}`,
+      `${BASE_URL}/user/playList?token=${token}`,
     );
-    console.log('BYHost ', response.data.result);
+    console.log('BYHost ', response);
     return response.data.result;
   } catch (error) {
     console.error(error);
