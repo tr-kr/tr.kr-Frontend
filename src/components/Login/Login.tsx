@@ -14,7 +14,7 @@ const Login = () => {
             password: loginPassword
         };
 
-        axios.post("http://172.30.1.79:3000/api/login", userData)
+        axios.post("https://ryueclipse.shop/api/login", userData)
             .then(response => {
                 response = response.data;
                 localStorage.clear()
@@ -24,8 +24,9 @@ const Login = () => {
                 } else {
                 // localStorage.setItem('id', response.data.useridx)
                 localStorage.setItem('token', response.data.jwt)
-                //window.location.replace('/league')
+    
                 alert("성공~~");
+                window.location.replace('/')
                 console.log("Login successful:", response.data);
                 }
             })
@@ -57,7 +58,7 @@ const Login = () => {
                         </div>
                         <div>
                             <label htmlFor="" className="text-sm font-blod text-white block">비밀번호</label>
-                            <input type="password" placeholder="비밀번호" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} className="w-full bg-gray-200 border border-white hover:border-blue-600 hover:border-2 p-2 rounded-lg mt-1"/>
+                            <input type="password" placeholder="비밀번호" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} className="w-full bg-gray-200 border border-white hover:border-blue-600 hover:border-2 p-2 font-sans rounded-lg mt-1"/>
                         </div>
                         <div>
                             <button type='button' id='loginButton' className="w-full py-4 px-4 mt-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white text-xl" onClick={handleLogin}>로그인</button>
