@@ -8,9 +8,7 @@ const Bracket = () => {
   const [bracket, setBracket] = useState();
   useEffect(() => {
     const fetchData = async () => {
-      const data = await axios.get(
-        'http://3.34.170.230/api/competition/entry/1',
-      );
+      const data = await axios.get('http://3.34.170.230/api/tournament/1');
       console.log(data.data);
     };
     fetchData();
