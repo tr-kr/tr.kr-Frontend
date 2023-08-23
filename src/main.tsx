@@ -14,9 +14,14 @@ import ParticipatingTeam from './components/ParticipatingTeam/ParticipatingTeam.
 import CompOutline from './components/CompOutline/CompOutline.tsx'
 import Result from './components/Result/Result.tsx'
 import './index.css'
+
+import Login from './components/Login/Login.tsx';
+import Signup from './components/Login/Signup.tsx';
+
 import BracketPage from './pages/BracketPage.tsx';
 import ParticipatePage from './pages/ParticipatePage.tsx';
 import Banner from './components/Banner/Banner.tsx';
+
 
 const router = createBrowserRouter([
   {
@@ -62,8 +67,23 @@ const router = createBrowserRouter([
         element: <CompOutline />
       },
       {
+
+
+        path: 'login', 
+        element: <Login />
+      },
+      {
+        path: 'signup', 
+        element: <Signup />
+      },
+      {
+        path: 'result', 
+        element: <Result />
+      },
+      {
         path: 'banner',
         element: <Banner />
+
       }
     ],
   },
