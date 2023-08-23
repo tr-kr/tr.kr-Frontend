@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import CardSlider from '../components/CardSlider';
-import { Competition, getCompetition } from '../util';
+import { Competition, getCompetition, getCompetitionById } from '../util';
 
 const TITLE_STYLE = 'text-white text-4xl pt-4 px-4';
 
 export default function League() {
+  useEffect(() => {
+    getCompetitionById(1);
+  }, []);
   const settings = {
     dots: false,
     infinite: true,

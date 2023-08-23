@@ -2,9 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import carousel styles
 import { Competition, getCompetition } from '../util';
-import Banner0 from '../assets/images/Banner0.png';
-import Banner1 from '../assets/images/Banner1.png';
-import Banner2 from '../assets/images/Banner2.png';
+import Banner0 from '../assets/images/Banner2.png';
+import Banner1 from '../assets/images/Banner3.png';
+import Banner2 from '../assets/images/Banner1.jpeg';
+import Banner3 from '../assets/images/Banner7.jpeg';
+import Banner4 from '../assets/images/Banner10.png';
+
 type BannerType = {
   id: number;
   poster_path: string;
@@ -18,20 +21,33 @@ export default function MainCarousel() {
     {
       id: 1,
       poster_path: Banner0,
-      competition_title: '대회1',
-      competition_content: '대회1 내용',
+      competition_title: 'TR.KR이란?',
+      competition_content: '대학생을 위한 E스포츠 플랫폼 TR.KR',
     },
     {
       id: 2,
       poster_path: Banner1,
-      competition_title: '대회2',
-      competition_content: '대회2 내용',
+      competition_title: 'TR.KR 소개',
+      competition_content:
+        '한양대 에리카 동아리 ECCA의 스크림 이벤트 모집 중 ! ',
     },
     {
       id: 3,
       poster_path: Banner2,
-      competition_title: '대회3',
-      competition_content: '대회3 내용',
+      competition_title: '주간스크림',
+      competition_content: 'ECCA내 주간 스크림 모집 중! (DISCORD로 문의)',
+    },
+    {
+      id: 4,
+      poster_path: Banner3,
+      competition_title: '으슬으슬 칼바람',
+      competition_content: 'ECCA에서 개최하는 칼바람 대회 인원 모집중 ! ',
+    },
+    {
+      id: 5,
+      poster_path: Banner4,
+      competition_title: 'TR.KR 칼바람 격전',
+      competition_content: '칼바람 격전 대회 인원 모집중 ! 기존 팀 참여 가능',
     },
   ];
   const [selectedItem, setSelectedItem] = useState<number>(0);
@@ -78,33 +94,28 @@ export default function MainCarousel() {
         showIndicators={false}
       >
         {Banner.map((item, index) => (
-          <div key={index} className="h-[1000px]">
+          <div key={index} className="">
             <img
-              className="w-full h-full object-fill object-center"
+              className="w-full h-full object-contain object-center"
               src={item.poster_path}
               alt="carousel"
             />
-            <div className="absolute bottom-5 left-10 p-8 bg-opacity-70 rounded-xl border-white border-2 bg-white text-black text-start">
+            <div className="flex flex-col gap-4 absolute bottom-6 left-12 p-8 py-4 bg-opacity-60 rounded-xl border-primary border-[5px] bg-white text-black text-start">
               <h3 className="text-3xl text-primary font-EB">
                 {item.competition_title}
               </h3>
-              <p className="text-gray text-xl">{item.competition_content}</p>
+              <p className="text-gray text-2xl font-B">
+                {item.competition_content}
+              </p>
             </div>
           </div>
         ))}
       </Carousel>
-      <div className="h-4 bg-gray-200 relative">
-        <div
-          className="absolute h-full bg-primary"
-          style={{ width: `${progress}%` }}
-        ></div>
-      </div>
-
-      <div className="absolute  md:-bottom-[115px] lg:-bottom-[115px] xl:-bottom-[85px] w-full flex gap-2 my-4 justify-around">
+      <div className="w-full flex gap-[1.5px] mt-[1px] mb-1 justify-around">
         {Banner.map((item, index) => (
           <button
             key={index}
-            className={`flex-1 p-4 rounded-md border-[2px]  text-lg ${
+            className={`flex-1 p-4 py-6 rounded-md border-[2px]  text-2xl ${
               index === selectedItem
                 ? 'bg-primary text-white font-EB'
                 : ' text-primary bg-white font-R'
@@ -114,6 +125,9 @@ export default function MainCarousel() {
             {item.competition_title}
           </button>
         ))}
+      </div>
+      <div className="h-4">
+        <div className="h-full bg-primary" style={{ width: `${progress}%` }} />
       </div>
     </div>
   );
