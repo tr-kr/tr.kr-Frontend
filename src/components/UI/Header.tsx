@@ -81,7 +81,12 @@ const Header = () => {
       <button
         className="px-4 py-2 text-lg font-bold text-white bg-transparent border-2 border-primary rounded-md"
         onClick={() => {
-          navigate('/login');
+          if (isLogin) {
+            localStorage.removeItem('token'); // Remove the token from local storage
+            window.location.reload(); // Reload the page
+          } else {
+            navigate('/login');
+          }
         }}
       >
         {isLogin ? '로그아웃' : '로그인'}
