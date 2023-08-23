@@ -16,7 +16,7 @@ export default function CardSlider({ info, settings }: CardSliderProps) {
         return (
           <div key={index} className="p-4 flex flex-col">
             <div
-              onClick={() => navigate(`/detail/${item.id}`)}
+              onClick={() => navigate(`/banner/${item.id}`)}
               className="bg-white rounded-md shadow-md overflow-hidden relative flex flex-col"
             >
               <img
