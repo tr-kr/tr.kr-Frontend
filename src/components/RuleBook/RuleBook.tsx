@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+
 const RuleBook = () => {
     const [pdfPath, setPdfPath] = useState<string | null>(null);
     const fixedBaseUrl = "http://3.34.170.230";
