@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import carousel styles
 import { Competition, getCompetition } from '../util';
-import Banner0 from '../assets/images/banner2.png';
-import Banner1 from '../assets/images/banner3.png';
-import Banner2 from '../assets/images/Banner1.jpeg';
-import Banner3 from '../assets/images/Banner7.jpeg';
-import Banner4 from '../assets/images/Banner10.png';
+import Banner_image1 from '../assets/images/banner2.png';
+import Banner_image2 from '../assets/images/banner3.png';
+import Banner_image3 from '../assets/images/Banner1.jpeg';
+import Banner_image4 from '../assets/images/Banner7.jpeg';
+import Banner_image5 from '../assets/images/Banner10.png';
 
 type BannerType = {
   id: number;
@@ -20,32 +20,32 @@ export default function MainCarousel() {
   const Banner: BannerType[] = [
     {
       id: 1,
-      poster_path: Banner0,
+      poster_path: Banner_image1,
       competition_title: 'TR.KR이란?',
       competition_content: '대학생을 위한 E스포츠 플랫폼 TR.KR',
     },
     {
       id: 2,
-      poster_path: Banner1,
+      poster_path: Banner_image2,
       competition_title: 'TR.KR 소개',
       competition_content:
         '한양대 에리카 동아리 ECCA의 스크림 이벤트 모집 중 ! ',
     },
     {
       id: 3,
-      poster_path: Banner2,
+      poster_path: Banner_image3,
       competition_title: '주간스크림',
       competition_content: 'ECCA내 주간 스크림 모집 중! (DISCORD로 문의)',
     },
     {
       id: 4,
-      poster_path: Banner3,
+      poster_path: Banner_image4,
       competition_title: '으슬으슬 칼바람',
       competition_content: 'ECCA에서 개최하는 칼바람 대회 인원 모집중 ! ',
     },
     {
       id: 5,
-      poster_path: Banner4,
+      poster_path: Banner_image5,
       competition_title: 'TR.KR 칼바람 격전',
       competition_content: '칼바람 격전 대회 인원 모집중 ! 기존 팀 참여 가능',
     },
