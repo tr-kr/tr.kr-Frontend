@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import carousel styles
 import { Competition, getCompetition } from '../util';
-import Banner_image1 from '../assets/images/banner2.png';
+import Banner_image1 from '../assets/images/Banners.jpeg';
 import Banner_image2 from '../assets/images/banner3.png';
 import Banner_image3 from '../assets/images/Banner1.jpeg';
 import Banner_image4 from '../assets/images/Banner7.jpeg';
