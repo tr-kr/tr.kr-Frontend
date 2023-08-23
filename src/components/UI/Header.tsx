@@ -84,7 +84,7 @@ const Header = () => {
           navigate('/login');
         }}
       >
-        {isLogin ? '로그인' : '로그아웃'}
+        {isLogin ? '로그아웃' : '로그인'}
       </button>
     </header>
   );
