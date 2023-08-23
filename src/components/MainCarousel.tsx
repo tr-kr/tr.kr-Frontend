@@ -2,9 +2,38 @@ import { useEffect, useRef, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import carousel styles
 import { Competition, getCompetition } from '../util';
-
+import Banner0 from '../assets/images/Banner0.png';
+import Banner1 from '../assets/images/Banner1.png';
+import Banner2 from '../assets/images/Banner2.png';
+type BannerType = {
+  id: number;
+  poster_path: string;
+  competition_title: string;
+  competition_content: string;
+};
 export default function MainCarousel() {
   const carouselRef = useRef<Carousel>(null);
+
+  const Banner: BannerType[] = [
+    {
+      id: 1,
+      poster_path: Banner0,
+      competition_title: '대회1',
+      competition_content: '대회1 내용',
+    },
+    {
+      id: 2,
+      poster_path: Banner1,
+      competition_title: '대회2',
+      competition_content: '대회2 내용',
+    },
+    {
+      id: 3,
+      poster_path: Banner2,
+      competition_title: '대회3',
+      competition_content: '대회3 내용',
+    },
+  ];
   const [selectedItem, setSelectedItem] = useState<number>(0);
   const [progress, setProgress] = useState<number>(0);
   const [competition, setCompetition] = useState<Competition[]>([]);
@@ -48,11 +77,11 @@ export default function MainCarousel() {
         transitionTime={1000}
         showIndicators={false}
       >
-        {competition.map((item, index) => (
-          <div key={index} className="h-[800px]">
+        {Banner.map((item, index) => (
+          <div key={index} className="h-[1000px]">
             <img
-              className="w-full h-full object-cover object-center"
-              src={`//3.34.170.230/${item.poster_path}`}
+              className="w-full h-full object-fill object-center"
+              src={item.poster_path}
               alt="carousel"
             />
             <div className="absolute bottom-5 left-10 p-8 bg-opacity-70 rounded-xl border-white border-2 bg-white text-black text-start">
@@ -72,7 +101,7 @@ export default function MainCarousel() {
       </div>
 
       <div className="absolute  md:-bottom-[115px] lg:-bottom-[115px] xl:-bottom-[85px] w-full flex gap-2 my-4 justify-around">
-        {competition.map((item, index) => (
+        {Banner.map((item, index) => (
           <button
             key={index}
             className={`flex-1 p-4 rounded-md border-[2px]  text-lg ${

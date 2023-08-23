@@ -30,7 +30,7 @@ const Header = () => {
     navigate(`${routing[item]}`);
   };
   return (
-    <header className="flex items-center justify-between px-6 py-4 bg-black text-white">
+    <header className="flex items-center justify-between px-6 py-4 bg-black text-white fixed top-0 right-0 z-50 w-full ">
       <h1
         className="text-3xl font-EB cursor-pointer"
         onClick={() => navigate('/')}
