@@ -59,10 +59,13 @@ const Header = () => {
           </li>
         ))}
       </ul>
-      <button className="px-4 py-2 text-lg font-bold text-white bg-transparent border-2 border-primary rounded-md" onClick={() => {
-          const location = window.location as Location & { replace: (url: string) => void };
-          location.replace("/login");
-      }}>로그인
+      <button
+        className="px-4 py-2 text-lg font-bold text-white bg-transparent border-2 border-primary rounded-md"
+        onClick={() => {
+          navigate('/login');
+        }}
+      >
+        로그인
       </button>
     </header>
   );
