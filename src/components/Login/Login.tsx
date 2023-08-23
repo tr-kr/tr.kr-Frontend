@@ -17,7 +17,7 @@ const Login = () => {
         axios.post("http://172.30.1.79:3000/api/login", userData)
             .then(response => {
                 response = response.data;
-                
+
                 localStorage.clear()
                 // localStorage.setItem('id', response.data.useridx)
                 localStorage.setItem('token', response.data.jwt)
@@ -30,7 +30,7 @@ const Login = () => {
             });
     };
 
-    
+
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col justify-center">
             <div className="h-screen w-screen relative flex justify-center items-center bg-[url('./assets/lolespots.svg')]">

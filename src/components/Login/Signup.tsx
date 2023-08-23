@@ -65,35 +65,7 @@ const Signup = () => {
         [email, nickname, password, passwordCheck, name, birth],
     );
 
-    // const handleSignup = () => {
-    //     const userData = {
-    //         email: signupEmail,
-    //         password: signupPassword,
-    //         passwordCheck: signupPasswordCheck,
-    //         name:signupName,
-    //         nickname: signupNickname,
-    //         birth: signupBirth
-    //     };
-  
-    //     axios.post("http://172.30.1.99:3000/api/login", userData)
-    //         .then(response => {
-    //             alert("성공~~");
-    //             console.log("Login successful:", response.data);
-    //     })
-    //         .catch(error => {
-    //               console.error("Login error:", error);
-    //         });
-    //     };
 
-    // const gap_check = () => {
-    //     if( email && password && passwordCheck && name && nickname && birth )
-    //         console.log("다 적혀 있음");
-    //     else{
-    //         console.log("공백 있음");
-    //     }
-    //     //console.log(userData.birth);
-    //     //알람창을 띄우거나 태그 숨겨두고 나타나게 이용 69줄 비밀번호 확인 이용
-    // }
 
     return (
         <div className="max-h-screen bg-gray-50 flex flex-col">
