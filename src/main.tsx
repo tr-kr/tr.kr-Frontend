@@ -11,17 +11,22 @@ import MyPage from './components/MyPage/MyPage.tsx';
 import CompCreatePage from './pages/CompCreatePage';
 import RuleBook from './components/RuleBook/RuleBook.tsx'
 import ParticipatingTeam from './components/ParticipatingTeam/ParticipatingTeam.tsx'
+import CompOutline from './components/CompOutline/CompOutline.tsx'
 import Result from './components/Result/Result.tsx'
 import './index.css'
+import BracketPage from './pages/BracketPage.tsx';
+import ParticipatePage from './pages/ParticipatePage.tsx';
+import Banner from './components/Banner/Banner.tsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+      
     children: [
       {
         index: true,
-        element: <Home />
+        element: <Home />,
       },
       { path: '/league', element: <League /> },
       {
@@ -33,16 +38,32 @@ const router = createBrowserRouter([
         element: <CompCreatePage />,
       },
       {
-        path: 'rule-book', 
-        element: <RuleBook />
+        path: 'rule-book',
+        element: <RuleBook />,
       },
       {
-        path: 'participating-team', 
-        element: <ParticipatingTeam />
+        path: 'participating-team',
+        element: <ParticipatingTeam />,
       },
       {
-        path: 'result', 
-        element: <Result />
+        path: 'result',
+        element: <Result />,
+      },
+      {
+        path: 'bracket',
+        element: <BracketPage />,
+      },
+      {
+        path: 'participate',
+        element: <ParticipatePage />,
+      },
+      {
+        path: 'comp-outline',
+        element: <CompOutline />
+      },
+      {
+        path: 'banner',
+        element: <Banner />
       }
     ],
   },

@@ -6,7 +6,7 @@ const Header = () => {
   const [routing, setRouting] = useState({
     '서비스 소개': '/',
     '대회 탐색': '/league',
-    '대회 생성': '/create',
+    '대회 생성': '/create-comps',
   });
   const [active, setActive] = useState(navItems[4]);
   const navigate = useNavigate();
