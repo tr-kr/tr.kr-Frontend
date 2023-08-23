@@ -11,7 +11,7 @@ const Header = () => {
   const [routing, setRouting] = useState<RoutingType>({
     '서비스 소개': '/',
     '대회 탐색': '/league',
-    '대회 생성': '/create',
+    '대회 생성': '/create-comps',
   });
   const [active, setActive] = useState(navItems[4]);
   const navigate = useNavigate();
@@ -59,12 +59,10 @@ const Header = () => {
           </li>
         ))}
       </ul>
-
-      <button
-        className="px-4 py-2 text-lg font-bold text-white bg-transparent border-2 border-primary rounded-md 
-               transition-all duration-300 ease-in-out hover:bg-primary hover:text-black"
-      >
-        로그인
+      <button className="px-4 py-2 text-lg font-bold text-white bg-transparent border-2 border-primary rounded-md" onClick={() => {
+          const location = window.location as Location & { replace: (url: string) => void };
+          location.replace("/login");
+      }}>로그인
       </button>
     </header>
   );
