@@ -1,9 +1,20 @@
-import React from 'react';
+import { useState } from 'react';
+import axios from 'axios';
 
 const Result = () => {
 
     const backendData = ['xxxxx', 'xxxx', 'xxxxxxxxxxx', 'xxxx', 'xxxxxxxx', 'xxxxx'];
+    const [period, setPeriod] = useState('');
 
+    axios.get("http://3.34.170.230/api/competition/1")
+    .then(response => {
+        const responseData = response.data;
+        const competition = responseData.result[0];
+        setPeriod(competition.competition_period);
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
     return (
         <div className="h-screen mb-[10%]">
             <div className="flex justify-between mt-[30px] ml-[10%] mr-[10%]">
@@ -22,7 +33,7 @@ const Result = () => {
                     진행중
                 </div>
                 <div className="text-white text-[24px] ml-[15px]">
-                    20XX.XX.XX~XX.XX
+                    {period.split(',')[0]} ~ {period.split(',')[1]}
                 </div>
             </div>
             <div className="flex justify-center items-center">
