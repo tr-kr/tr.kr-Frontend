@@ -1,9 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+type RoutingType = {
+  '서비스 소개': string;
+  '대회 탐색': string;
+  '대회 생성': string;
+};
 
 const Header = () => {
   const navItems: string[] = ['서비스 소개', '대회 탐색', '대회 생성'];
-  const [routing, setRouting] = useState({
+  const [routing, setRouting] = useState<RoutingType>({
     '서비스 소개': '/',
     '대회 탐색': '/league',
     '대회 생성': '/create-comps',
@@ -13,19 +18,19 @@ const Header = () => {
   const location = useLocation();
   useEffect(() => {
     for (const item in routing) {
-      if (routing[item] === location.pathname) {
+      if (routing[item as keyof RoutingType] === location.pathname) {
         setActive(item);
         break;
       }
     }
   }, [location.pathname, routing]);
-  const handleNavigation = (item: string) => {
+  const handleNavigation = (item: keyof RoutingType) => {
     setActive(item);
     console.log(location);
     navigate(`${routing[item]}`);
   };
   return (
-    <header className="flex items-center justify-between px-6 py-4 bg-black text-white">
+    <header className="flex items-center justify-between px-6 py-4 bg-black text-white fixed top-0 right-0 z-50 w-full ">
       <h1
         className="text-3xl font-EB cursor-pointer"
         onClick={() => navigate('/')}
@@ -37,11 +42,20 @@ const Header = () => {
           <li
             key={item}
             className={`
-            ${item === active && 'border-b-4 border-primary'}
-              py-4`}
-            onClick={() => handleNavigation(item)}
+                cursor-pointer relative 
+                transform hover:scale-105 hover:text-primary 
+                py-4
+            `}
+            onClick={() => handleNavigation(item as keyof RoutingType)}
           >
-            {item}
+            <span>{item}</span>
+            <span
+              className={`
+                    absolute bottom-0 left-0 empty-content block 
+                    ${item === active ? 'w-full' : 'w-0'} 
+                    h-1 bg-primary transition-width duration-300 ease-in-out
+                `}
+            ></span>
           </li>
         ))}
       </ul>
