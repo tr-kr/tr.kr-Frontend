@@ -18,7 +18,7 @@ const Identifier = ({ title, color }: Props) => {
         </div>
       </div>
       <div
-        className={`before:contents-[''] before:absolute before:top-0 before:-right-4 before:w-[3px] before:h-full ${
+        className={`before:content-[''] before:absolute before:top-0 before:-right-4 before:w-[3px] before:h-full ${
           color === 'primary' ? 'before:bg-[#3f4fe1]' : 'before:bg-white'
         }`}
       />
