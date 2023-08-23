@@ -55,7 +55,7 @@ const Signup = () => {
     const onChangeName = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         setName(e.target.value)
         if (e.target.value.length < 2 || e.target.value.length > 5) {
-            setNameMessage('2글자 이상 5글자 미만으로 입력해주세요.')
+            setNameMessage('2글자 이상 5글자 미만으로 입력 부탁드립니다')
             setIsName(false)
         } else {
             setNameMessage('올바른 이름 형식입니다 :)')
@@ -67,10 +67,10 @@ const Signup = () => {
     const onChangeNickname = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         setNickname(e.target.value)
         if (e.target.value.length < 2 || e.target.value.length > 5) {
-            setNicknameMessage('2글자 이상 5글자 미만으로 입력해주세요.')
+            setNicknameMessage('2글자 이상 5글자 미만으로 입력 부탁드립니다')
             setIsNickname(false)
         } else {
-            setNicknameMessage('올바른 닉네임 형식입니다 :)')
+            setNicknameMessage('올바른 닉네임 형식입니다')
             setIsNickname(true)
         }
     }, [])
@@ -112,10 +112,10 @@ const Signup = () => {
         setPasswordConfirm(passwordConfirmCurrent)
     
             if (password == passwordConfirmCurrent) {
-                setPasswordConfirmMessage('비밀번호를 똑같이 입력했어요')
+                setPasswordConfirmMessage('비밀번호가 같습니다')
                 setIsPasswordConfirm(true)
             } else {
-                setPasswordConfirmMessage('비밀번호가 틀려요. 다시 확인해주세요 ㅜ ㅜ')
+                setPasswordConfirmMessage('비밀번호가 다릅니다')
                 setIsPasswordConfirm(false)
             }
         },
@@ -143,9 +143,10 @@ const Signup = () => {
     const duplicationCheck = () => {
         duplicationCheckAPI(email).then((response) => {
             console.log(response);
-            if (response === false) {
+            if (response.message === '성공') {
                 alert('사용 가능한 아이디입니다.');
-                setUsableId(true); // 아이디 사용 가능 상태로 변경
+                setUsableId(true);
+                window.location.replace('/login') // 아이디 사용 가능 상태로 변경
             } else {
                 alert('중복된 아이디입니다. 다시 시도하세요.');
                 setUsableId(false); // 아이디 중복 상태로 변경
@@ -191,20 +192,20 @@ const Signup = () => {
                             <span>이메일</span>
                             <input type="email" id="email" name="email" value={email} onChange={onChangeEmail} className="w-full p-2 border border-gray-300 rounded-lg mt-1 mb-2 text-black"/>
                             {email.length > 0 && <span className={`message ${isEmail ? 'text-green-500' : 'text-red-500'}`}>{emailMessage}</span>}
-                            <button className=" bg-blue-600 rounded-sm text-white px-2 ml-4" onClick={duplicationCheck}>중복 확인</button>
+                            
                         </label>
                     </div>
                     <div>
                         <label id="PasswordLabel" htmlFor="" className="text-sm font-blod text-white block">
                             <span>비밀번호</span>
-                            <input type="password" id="password" name="password" value={password} onChange={onChangePassword} className="w-full p-2 border border-gray-300 rounded-lg mt-1 mb-2 text-black"/>
+                            <input type="password" id="password" name="password" value={password} onChange={onChangePassword} className="w-full p-2 border border-gray-300 rounded-lg mt-1 mb-2 font-sans text-black"/>
                             {password.length > 0 && (<span className={`message ${isPassword ? 'text-green-500' : 'text-red-500'}`}>{passwordMessage}</span>)}
                         </label>
                     </div>
                     <div className="">
                         <label id="PasswordCheckLabel" htmlFor="" className="text-sm font-blod text-white block">
                             <span>비밀번호 확인</span>
-                            <input type="password" id="password-check" name="password-check" value={passwordConfirm} onChange={onChangePasswordConfirm} className="w-full p-2 border border-gray-300 rounded-lg mt-1 mb-2 text-black"/>
+                            <input type="password" id="password-check" name="password-check" value={passwordConfirm} onChange={onChangePasswordConfirm} className="w-full p-2 border border-gray-300 rounded-lg mt-1 mb-2 font-sans text-black"/>
                             {passwordConfirm.length > 0 && (<span className={`message ${isPasswordConfirm ? 'text-green-500' : 'text-red-500'}`}>{passwordConfirmMessage}</span>)}
                         </label>
                     </div>
@@ -215,8 +216,8 @@ const Signup = () => {
                         </label>
                     </div> */}
                     <div>
-                        <button type='submit' disabled={!(isName && isNickname && isEmail && isPassword && isPasswordConfirm)} className="w-full mt-6 py-4 px-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white text-xl" onClick={() => {
-                            onSubmit;
+                        <button type='submit' disabled={!(isName && isNickname && isEmail && isPassword && isPasswordConfirm)} className="w-full mt-6 py-4 px-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white text-xl disabled:bg-gray " onClick={() => {
+                            duplicationCheck();
                             // location.replace("/login")
                         }}>가입 완료</button>
                     </div>

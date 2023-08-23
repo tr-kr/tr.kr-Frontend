@@ -13,7 +13,7 @@ const Login = () => {
     };
 
     axios
-      .post('http://172.30.1.79:3000/api/login', userData)
+      .post('https://ryueclipse.shop/api/login', userData)
       .then((response) => {
         response = response.data;
         localStorage.clear();
@@ -23,8 +23,9 @@ const Login = () => {
         } else {
           // localStorage.setItem('id', response.data.useridx)
           localStorage.setItem('token', response.data.jwt);
-          //window.location.replace('/league')
+
           alert('성공~~');
+          window.location.replace('/');
           console.log('Login successful:', response.data);
         }
       })
@@ -50,7 +51,6 @@ const Login = () => {
               </div>
             </div>
           </div>
-
           <form id="container" className="space-y-6 mt-10">
             <div>
               <label htmlFor="" className="text-sm font-blod text-white block">
@@ -73,7 +73,7 @@ const Login = () => {
                 placeholder="비밀번호"
                 value={loginPassword}
                 onChange={(e) => setLoginPassword(e.target.value)}
-                className="w-full bg-gray-200 border border-white hover:border-blue-600 hover:border-2 p-2 rounded-lg mt-1"
+                className="w-full bg-gray-200 border border-white hover:border-blue-600 hover:border-2 p-2 font-sans rounded-lg mt-1"
               />
             </div>
             <div>
