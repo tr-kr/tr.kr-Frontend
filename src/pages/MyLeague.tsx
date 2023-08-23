@@ -20,7 +20,9 @@ export default function MyLeague() {
   };
   const [competition, setCompetition] = useState<MyCompetition[]>([]);
   const [hostCompetition, setHostCompetition] = useState<MyCompetition[]>([]);
-  const token = localStorage.getItem('token');
+  // const token = localStorage.getItem('token');
+  const token =
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWR4Ijo2OSwiaWF0IjoxNjkyODIzODY1LCJleHAiOjE2OTI4Mjc0NjV9.cRSKCEHIf4UpWZKoD3M-YDtBH7-kLzpE70u5t0_TOrs';
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -43,7 +45,7 @@ export default function MyLeague() {
         </span>
       </div>
       <div className="h-[1.5px] rounded-full bg-white w-[97%] mt-2 mx-auto" />
-      {competition.length > 0 && (
+      {competition?.length > 0 && (
         <MyLeagueCard ifHost={false} info={competition} settings={settings} />
       )}
       <div className="h-[4px] bg-opacity-75" />
@@ -54,7 +56,7 @@ export default function MyLeague() {
         </span>
       </div>
       <div className="h-[1.5px] rounded-full bg-white w-[97%] mt-2 mx-auto" />
-      {hostCompetition.length > 0 && (
+      {hostCompetition?.length > 0 && (
         <MyLeagueCard
           ifHost={true}
           info={hostCompetition}
