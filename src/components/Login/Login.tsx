@@ -86,7 +86,6 @@ const Login = () => {
                 로그인
               </button>
             </div>
-
             <div className="flex justify-evenly items-center ">
               <a href="/Signup" className="font-medium text-sm text-white flex">
                 회원가입
