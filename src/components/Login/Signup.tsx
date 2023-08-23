@@ -46,9 +46,13 @@ const Signup = () => {
                 // 첫번째 요청때 남아있던 결과가 두번째 요청때도 똑같이 표시되는
                 // 문제가 있을 수 있다.
 
-                axios.post("http://172.30.1.79:3000/api/signup", { email, nickname, password,}
-                )
+                axios.post(`http://172.30.1.79:3000/api/signup`, { name:name, email:email, nickname:nickname, password:password, birth:birth })
                 .then((response) => {
+                    alert(response);
+                    if (response.data.isSuccess === false) {
+                        alert("실패");
+                        return;
+                    }
                     // 성공시
                     console.log(response);
                     setSignUpSuccess(true);
@@ -154,8 +158,8 @@ const Signup = () => {
                         </label>
                     </div>
                     <div>
-                        <button type='submit'  className="w-full mt-6 py-4 px-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white text-xl" onClick={() => {
-                            onSubmit;
+                        <button type='submit'  className="w-full mt-6 py-4 px-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white text-xl" onClick={(e) => {
+                            onSubmit(e);
                             location.replace("/login")
                         }}>가입 완료</button>
                     </div>
