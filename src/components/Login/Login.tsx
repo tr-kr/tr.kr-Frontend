@@ -34,7 +34,7 @@ const Login = () => {
             });
     };
 
-    
+
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col justify-center">
             <div className="h-screen w-screen relative flex justify-center items-center bg-[url('./assets/lolespots.svg')]">
