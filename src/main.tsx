@@ -79,7 +79,8 @@ const router = createBrowserRouter([
       {
         path: 'result', 
         element: <Result />
-
+      },
+      {
 
         path: 'banner',
         element: <Banner />
