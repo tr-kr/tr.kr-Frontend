@@ -1,18 +1,15 @@
 import { useEffect, useState } from 'react';
-import CardSlider from '../components/CardSlider';
 import {
-  Competition,
   MyCompetition,
-  getCompetition,
   getCompetitionById,
   getHostCompetitionById,
 } from '../util';
-import { useParams } from 'react-router-dom';
+import MyLeagueCard from '../components/MyLeagueCard';
 
-const TITLE_STYLE = 'text-white text-4xl pt-4 px-4';
+const TITLE_STYLE =
+  'bg-primary rounded-md w-fit mb-2 flex items-center justify-center text-white text-[33px] font-B p-1 px-6 ml-6';
 
 export default function MyLeague() {
-  const { id } = useParams();
   const settings = {
     dots: false,
     infinite: true,
@@ -23,11 +20,12 @@ export default function MyLeague() {
   };
   const [competition, setCompetition] = useState<MyCompetition[]>([]);
   const [hostCompetition, setHostCompetition] = useState<MyCompetition[]>([]);
+  const token = localStorage.getItem('token');
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await getCompetitionById(id);
-        const hostResult = await getHostCompetitionById(id);
+        const result = await getCompetitionById(token);
+        const hostResult = await getHostCompetitionById(token);
         setHostCompetition(hostResult);
         setCompetition(result);
       } catch (error) {
@@ -37,15 +35,31 @@ export default function MyLeague() {
     fetchData();
   }, []);
   return (
-    <section className="bg-gray flex flex-col gap-1">
-      <h1 className={`${TITLE_STYLE}`}>대학교 게임 대회</h1>
+    <section className="flex flex-col mt-[120px]">
+      <div className="flex items-center gap-4">
+        <h1 className={`${TITLE_STYLE}`}>참여한 대회</h1>
+        <span className="text-white text-3xl p-1 mb-2">
+          {competition?.length}회
+        </span>
+      </div>
+      <div className="h-[1.5px] rounded-full bg-white w-[97%] mt-2 mx-auto" />
       {competition.length > 0 && (
-        <CardSlider info={competition} settings={settings} />
+        <MyLeagueCard ifHost={false} info={competition} settings={settings} />
       )}
       <div className="h-[4px] bg-opacity-75" />
-      <h1 className={TITLE_STYLE}>직장인 PC방 대회</h1>
+      <div className="flex items-center gap-4">
+        <h1 className={TITLE_STYLE}>개최한 대회</h1>
+        <span className="text-white text-3xl p-1 mb-2">
+          {hostCompetition?.length}회
+        </span>
+      </div>
+      <div className="h-[1.5px] rounded-full bg-white w-[97%] mt-2 mx-auto" />
       {hostCompetition.length > 0 && (
-        <CardSlider info={hostCompetition} settings={settings} />
+        <MyLeagueCard
+          ifHost={true}
+          info={hostCompetition}
+          settings={settings}
+        />
       )}
     </section>
   );
