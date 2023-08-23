@@ -27,7 +27,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-      
+
     children: [
       {
         index: true,
@@ -35,37 +35,19 @@ const router = createBrowserRouter([
       },
       { path: '/league', element: <League /> },
       {
-        path: 'my-page', 
-        element: <MyPage />
+        path: 'my-page',
+        element: <MyPage />,
       },
       {
         path: 'create-comps',
         element: <CompCreatePage />,
       },
-      {
-        path: 'rule-book',
-        element: <RuleBook />,
-      },
-      {
-        path: 'participating-team',
-        element: <ParticipatingTeam />,
-      },
-      {
-        path: 'result',
-        element: <Result />,
-      },
-      {
-        path: 'bracket',
-        element: <BracketPage />,
-      },
+
       {
         path: 'participate',
         element: <ParticipatePage />,
       },
-      {
-        path: 'comp-outline',
-        element: <CompOutline />
-      },
+
       {
 
 
@@ -82,9 +64,31 @@ const router = createBrowserRouter([
       },
       {
         path: 'banner',
-        element: <Banner />
+        element: <Banner />,
 
-      }
+        children: [
+          {
+            path: 'comp-outline',
+            element: <CompOutline />,
+          },
+          {
+            path: 'rule-book',
+            element: <RuleBook />,
+          },
+          {
+            path: 'participating-team',
+            element: <ParticipatingTeam />,
+          },
+          {
+            path: 'bracket',
+            element: <BracketPage />,
+          },
+          {
+            path: 'result',
+            element: <Result />,
+          },
+        ],
+      },
     ],
   },
 ]);
