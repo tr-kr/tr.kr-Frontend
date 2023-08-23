@@ -7,6 +7,7 @@ import './index.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import League from './pages/League.tsx';
+import MyPage from './components/MyPage/MyPage.tsx';
 import CompCreatePage from './pages/CompCreatePage';
 import RuleBook from './components/RuleBook/RuleBook.tsx'
 import ParticipatingTeam from './components/ParticipatingTeam/ParticipatingTeam.tsx'
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       { path: '/league', element: <League /> },
+      {
+        path: 'my-page', 
+        element: <MyPage />
+      },
       {
         path: 'create-comps',
         element: <CompCreatePage />,
