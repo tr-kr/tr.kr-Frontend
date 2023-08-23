@@ -18,7 +18,7 @@ export default function MyLeagueCard({
         return (
           <div key={index} className="p-4 px-6 flex flex-col">
             <div
-              onClick={() => navigate(`/detail/${item.id}`)}
+              onClick={() => navigate(`/banner/${item.id}`)}
               className="bg-white relative rounded-md shadow-md overflow-hidden flex flex-col"
             >
               <div className="flex flex-col p-6 flex-grow">
