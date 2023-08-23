@@ -1,13 +1,18 @@
 import { useEffect, useState } from 'react';
 import CardSlider from '../components/CardSlider';
-import { Competition, getCompetition, getCompetitionById } from '../util';
+import {
+  Competition,
+  MyCompetition,
+  getCompetition,
+  getCompetitionById,
+  getHostCompetitionById,
+} from '../util';
+import { useParams } from 'react-router-dom';
 
 const TITLE_STYLE = 'text-white text-4xl pt-4 px-4';
 
-export default function League() {
-  useEffect(() => {
-    getCompetitionById(1);
-  }, []);
+export default function MyLeague() {
+  const { id } = useParams();
   const settings = {
     dots: false,
     infinite: true,
@@ -16,11 +21,14 @@ export default function League() {
     slidesToShow: 3,
     slidesToScroll: 3,
   };
-  const [competition, setCompetition] = useState<Competition[]>([]);
+  const [competition, setCompetition] = useState<MyCompetition[]>([]);
+  const [hostCompetition, setHostCompetition] = useState<MyCompetition[]>([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await getCompetition();
+        const result = await getCompetitionById(id);
+        const hostResult = await getHostCompetitionById(id);
+        setHostCompetition(hostResult);
         setCompetition(result);
       } catch (error) {
         console.error('Error fetching competitions:', error);
@@ -36,8 +44,8 @@ export default function League() {
       )}
       <div className="h-[4px] bg-opacity-75" />
       <h1 className={TITLE_STYLE}>직장인 PC방 대회</h1>
-      {competition.length > 0 && (
-        <CardSlider info={competition} settings={settings} />
+      {hostCompetition.length > 0 && (
+        <CardSlider info={hostCompetition} settings={settings} />
       )}
     </section>
   );

@@ -17,13 +17,17 @@ const Login = () => {
         axios.post("http://172.30.1.79:3000/api/login", userData)
             .then(response => {
                 response = response.data;
-
                 localStorage.clear()
+                if (response.data.isSuccess === false) {
+                    alert("실패");
+                    return;
+                } else {
                 // localStorage.setItem('id', response.data.useridx)
                 localStorage.setItem('token', response.data.jwt)
                 //window.location.replace('/league')
                 alert("성공~~");
                 console.log("Login successful:", response.data);
+                }
             })
             .catch(error => {
                 console.error("Login error:", error);
