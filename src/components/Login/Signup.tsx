@@ -33,7 +33,7 @@ const Signup = () => {
           try {
             await axios
               .post('https://ryueclipse.shop/api/signup', {
-                username: name,
+                name: name,
                 nickname: nickname,
                 password: password,
                 email: email,

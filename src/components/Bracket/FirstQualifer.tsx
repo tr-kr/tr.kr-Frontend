@@ -19,7 +19,7 @@ const FirstQualifer = ({
 }: qualiferProps) => {
   const updateWinnerFirstTeam = async () => {
     try {
-      await axios.post('http://3.34.170.230/api/tournament/1/1/1/1');
+      await axios.post('https://ryueclipse.shop/api/tournament/1/1/1/1');
     } catch (err) {
       console.error(err);
     }
@@ -28,7 +28,7 @@ const FirstQualifer = ({
 
   const updateWinnerSecondTeam = async () => {
     try {
-      await axios.post('http://3.34.170.230/api/tournament/1/2/1/1');
+      await axios.post('https://ryueclipse.shop/api/tournament/1/2/1/1');
     } catch (err) {
       console.error(err);
     }

@@ -45,7 +45,7 @@ const CompOutline = () => {
 
   useEffect(() => {
     axios
-      .get(`http://3.34.170.230/api/competition/${id}`)
+      .get(`https://ryueclipse.shop/api/competition/${id}`)
       .then((response) => {
         const responseData = response.data;
         if (responseData.result && responseData.result.length > 0) {
