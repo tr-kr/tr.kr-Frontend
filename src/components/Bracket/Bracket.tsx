@@ -5,6 +5,7 @@ import SecondQualifer from './SecondQualifer';
 import SemiFinal from './SemiFinal';
 import axios from 'axios';
 import BracketModal from './BracketModal';
+import { useParams } from 'react-router';
 
 const Bracket = () => {
   const [putTeamDone, setPutTeamDone] = useState(false);
@@ -18,20 +19,23 @@ const Bracket = () => {
     sixth: '',
     seventh: '',
   });
+
+  const { id } = useParams();
+
   const [modalOpen, setModalOpen] = useState({ open: false, callId: '' });
 
   const getCompetitionTeams = async () => {
-    return await axios.get('http://3.34.170.230/api/competition/entry/1');
+    return await axios.get(`http://3.34.170.230/api/competition/entry/${id}`);
   };
 
   const getBracket = async () => {
-    return await axios.get('https://ryueclipse.shop/api/tournament/1');
+    return await axios.get(`https://ryueclipse.shop/api/tournament/${id}`);
   };
 
   useEffect(() => {
     if (!localStorage.getItem('bracket/1')) {
       const createBracket = async () => {
-        await axios.post('https://ryueclipse.shop/api/tournament/1/create');
+        await axios.post(`https://ryueclipse.shop/api/tournament/${id}/create`);
         localStorage.setItem('bracket/1', 'created');
       };
       createBracket();
