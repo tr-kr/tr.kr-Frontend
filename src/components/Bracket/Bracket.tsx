@@ -25,7 +25,7 @@ const Bracket = () => {
   const [modalOpen, setModalOpen] = useState({ open: false, callId: '' });
 
   const getCompetitionTeams = async () => {
-    return await axios.get(`http://3.34.170.230/api/competition/entry/${id}`);
+    return await axios.get(`https://ryueclipse.shop/api/competition/entry/${id}`);
   };
 
   const getBracket = async () => {

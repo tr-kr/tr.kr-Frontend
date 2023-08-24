@@ -11,7 +11,7 @@ const Result = () => {
 
     useEffect(() => {
 
-        axios.get(`http://3.34.170.230/api/tournament/${id}/getRanking`)
+        axios.get(`https://ryueclipse.shop/api/tournament/${id}/getRanking`)
             .then(response => {
                 const rankingData = response.data.result;
                 rankingData.sort((a: { grade: number }, b: { grade: number }) => a.grade - b.grade);
@@ -22,7 +22,7 @@ const Result = () => {
                 console.error("Error:", error);
             });
 
-        axios.get(`http://3.34.170.230/api/competition/${id}`)
+        axios.get(`https://ryueclipse.shop/api/competition/${id}`)
             .then(response => {
                 const responseData = response.data;
                 const competition = responseData.result[0];
