@@ -4,7 +4,7 @@ import axios from 'axios';
 const SemiFinal = ({ team, setTeam, putTeamDone }: modalProps) => {
   const updateWinnerFirstTeam = async () => {
     try {
-      await axios.post('http://3.34.170.230/api/tournament/1/1/2/1');
+      await axios.post('https://ryueclipse.shop/api/tournament/1/1/2/1');
     } catch (err) {
       console.error(err);
     }
@@ -13,7 +13,7 @@ const SemiFinal = ({ team, setTeam, putTeamDone }: modalProps) => {
 
   const updateWinnerSecondTeam = async () => {
     try {
-      await axios.post('http://3.34.170.230/api/tournament/1/2/2/1');
+      await axios.post('https://ryueclipse.shop/api/tournament/1/2/2/1');
     } catch (err) {
       console.error(err);
     }

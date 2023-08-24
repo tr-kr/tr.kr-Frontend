@@ -9,7 +9,7 @@ const ParticipatingTeam = () => {
     const [teamNames, setTeamNames] = useState<string[]>([]);
     const [period, setPeriod] = useState('');
 
-    axios.get(`http://3.34.170.230/api/competition/entry/${id}`)
+    axios.get(`https://ryueclipse.shop/api/competition/entry/${id}`)
         .then(response => {
             const responseData = response.data;
             const names = responseData.result.map((team: { team_name: string }) => team.team_name);
@@ -19,7 +19,7 @@ const ParticipatingTeam = () => {
             console.error("Error:", error);
         });
 
-    axios.get(`http://3.34.170.230/api/competition/${id}`)
+    axios.get(`https://ryueclipse.shop/api/competition/${id}`)
         .then(response => {
             const responseData = response.data;
             const competition = responseData.result[0];

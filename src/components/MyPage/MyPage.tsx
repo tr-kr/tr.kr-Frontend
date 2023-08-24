@@ -18,8 +18,8 @@ const MyPage = () => {
     const mytoken = localStorage.getItem('token')
 
     useEffect(() => {
-        //axios.get("http://172.30.1.79:3000/api/user/myInfo?token=${mytoken}")
-        axios.get(`http://172.30.1.79:3000/api/user/myInfo?token=${mytoken}`)
+        //axios.get("https://ryueclipse.shop/api/api/user/myInfo?token=${mytoken}")
+        axios.get(`https://ryueclipse.shop/api/user/myInfo?token=${mytoken}`)
         .then(response => {
                 const user = response.data.result;
                 setName(user.name);
@@ -35,7 +35,7 @@ const MyPage = () => {
     }
     )
     const handleNicknameChange = () => {
-        axios.put(`http://172.30.1.79:3000/api/user/myInfo?token=${mytoken}`, { nickname: newNickname })
+        axios.put(`https://ryueclipse.shop/api/user/myInfo?token=${mytoken}`, { nickname: newNickname })
             .then(response => {
                 alert("닉네임 변경이 완료되었습니다.");
                 console.log("Nickname changed successfully:", response.data);
@@ -45,7 +45,7 @@ const MyPage = () => {
             });
     };
     const handlePasswordChange = () => {
-        axios.put(`http://172.30.1.79:3000/api/user/myInfo?token=${mytoken}`, { password: newPassword })
+        axios.put(`https://ryueclipse.shop/api/user/myInfo?token=${mytoken}`, { password: newPassword })
             .then(response => {
                 alert("비밀번호 변경이 완료되었습니다.");
                 console.log("Password changed successfully:", response.data);
@@ -56,7 +56,7 @@ const MyPage = () => {
     };
 
     const getout = () => {
-        axios.get(`http://172.30.1.79:3000/api/deleteuser?token=${mytoken}`)
+        axios.get(`https://ryueclipse.shop/api/deleteuser?token=${mytoken}`)
         .then(response => {
             alert("회원 탈퇴 성공");
             console.log(response.data);
