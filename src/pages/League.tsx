@@ -1,8 +1,13 @@
+import { useEffect, useState } from 'react';
 import CardSlider from '../components/CardSlider';
-import { cards, workingAdultsCards } from '../data/data';
+import { Competition, getCompetition, getCompetitionById } from '../util';
+
 const TITLE_STYLE = 'text-white text-4xl pt-4 px-4';
 
 export default function League() {
+  useEffect(() => {
+    getCompetitionById(1);
+  }, []);
   const settings = {
     dots: false,
     infinite: true,
@@ -11,14 +16,29 @@ export default function League() {
     slidesToShow: 3,
     slidesToScroll: 3,
   };
-
+  const [competition, setCompetition] = useState<Competition[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await getCompetition();
+        setCompetition(result);
+      } catch (error) {
+        console.error('Error fetching competitions:', error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <section className="bg-gray flex flex-col gap-1">
       <h1 className={`${TITLE_STYLE}`}>대학교 게임 대회</h1>
-      <CardSlider cards={cards} settings={settings} />
+      {competition.length > 0 && (
+        <CardSlider info={competition} settings={settings} />
+      )}
       <div className="h-[4px] bg-opacity-75" />
       <h1 className={TITLE_STYLE}>직장인 PC방 대회</h1>
-      <CardSlider cards={workingAdultsCards} settings={settings} />
+      {competition.length > 0 && (
+        <CardSlider info={competition} settings={settings} />
+      )}
     </section>
   );
 }

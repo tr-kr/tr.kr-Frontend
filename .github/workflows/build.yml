@@ -1,0 +1,16 @@
+name: Build
+
+on: pull_request
+
+jobs:
+  build-test:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+      - run: npm i -g yarn
+      - run: yarn
+      - run: yarn build

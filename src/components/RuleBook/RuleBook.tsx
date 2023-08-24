@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router';
 
 
 const RuleBook = () => {
+    const { id } = useParams(); 
     const [pdfPath, setPdfPath] = useState<string | null>(null);
-    const fixedBaseUrl = "http://3.34.170.230";
+    const fixedBaseUrl = "https://ryueclipse.shop";
 
     useEffect(() => {
-        axios.get("http://3.34.170.230/api/competition/2")
+        axios.get(`https://ryueclipse.shop/api/competition/${id}`)
             .then(response => {
                 const responseData = response.data;
                 if (responseData.result && responseData.result.length > 0) {

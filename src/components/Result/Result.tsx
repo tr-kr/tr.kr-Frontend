@@ -1,8 +1,37 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router';
+
 
 const Result = () => {
+    const { id } = useParams();
 
-    const backendData = ['xxxxx', 'xxxx', 'xxxxxxxxxxx', 'xxxx', 'xxxxxxxx', 'xxxxx'];
+    const [backendData, setBackendData] = useState<string[]>([]);
+    const [period, setPeriod] = useState('');
+
+    useEffect(() => {
+
+        axios.get(`https://ryueclipse.shop/api/tournament/${id}/getRanking`)
+            .then(response => {
+                const rankingData = response.data.result;
+                rankingData.sort((a: { grade: number }, b: { grade: number }) => a.grade - b.grade);
+                const teamNames = rankingData.map((entry: { team_name: string }) => entry.team_name);
+                setBackendData(teamNames);
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+
+        axios.get(`https://ryueclipse.shop/api/competition/${id}`)
+            .then(response => {
+                const responseData = response.data;
+                const competition = responseData.result[0];
+                setPeriod(competition.competition_period);
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+    }, [id]);
 
     return (
         <div className="h-screen mb-[10%]">
@@ -22,7 +51,7 @@ const Result = () => {
                     진행중
                 </div>
                 <div className="text-white text-[24px] ml-[15px]">
-                    20XX.XX.XX~XX.XX
+                    {period.split(',')[0]} ~ {period.split(',')[1]}
                 </div>
             </div>
             <div className="flex justify-center items-center">
@@ -34,7 +63,7 @@ const Result = () => {
                     </span>
                     <span className="grid grid-cols-1 w-full text-center">
                         {backendData.map((data, index) => (
-                           <div key={data} className={index !== backendData.length - 1 ? "border-b-[1px]" : ""}>{data}</div>
+                            <div key={data} className={index !== backendData.length - 1 ? "border-b-[1px]" : ""}>{data}</div>
                         ))}
                     </span>
                 </div>

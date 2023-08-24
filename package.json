@@ -5,15 +5,22 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "vercel": "vercel dev",
+    "deploy": "vercel deploy"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
+<<<<<<< HEAD
 
+=======
+    "moment": "^2.29.4",
+    "react-calendar": "^4.6.0",
+>>>>>>> 724e3b48e1b5ac2e87dbe45cac35976e84043853
     "axios": "^1.4.0",
     "moment": "^2.29.4",
     "react": "^18.2.0",
@@ -49,6 +56,7 @@
     "style-loader": "^3.3.3",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.0.2",
+    "vercel": "^32.0.1",
     "vite": "^4.4.5"
   }
 }

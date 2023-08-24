@@ -3,6 +3,7 @@ import axios from 'axios';
 import person from '../../images/person.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { clean } from 'semver';
 
 const MyPage = () => {
 
@@ -14,10 +15,12 @@ const MyPage = () => {
     const [schoolGroup, setSchoolGroup] = useState('');
     const [newNickname, setNewNickname] = useState('');
     const [newPassword, setNewPassword] = useState('');
+    const mytoken = localStorage.getItem('token')
 
     useEffect(() => {
-        axios.get("http://172.30.1.99:3000/api/user/40")
-            .then(response => {
+        //axios.get("https://ryueclipse.shop/api/api/user/myInfo?token=${mytoken}")
+        axios.get(`https://ryueclipse.shop/api/user/myInfo?token=${mytoken}`)
+        .then(response => {
                 const user = response.data.result;
                 setName(user.name);
                 setNickname(user.nickname);
@@ -32,7 +35,7 @@ const MyPage = () => {
     }
     )
     const handleNicknameChange = () => {
-        axios.put("http://172.30.1.99:3000/api/user/40", { nickname: newNickname })
+        axios.put(`https://ryueclipse.shop/api/user/myInfo?token=${mytoken}`, { nickname: newNickname })
             .then(response => {
                 alert("닉네임 변경이 완료되었습니다.");
                 console.log("Nickname changed successfully:", response.data);
@@ -42,7 +45,7 @@ const MyPage = () => {
             });
     };
     const handlePasswordChange = () => {
-        axios.put("http://172.30.1.99:3000/api/user/40", { password: newPassword })
+        axios.put(`https://ryueclipse.shop/api/user/myInfo?token=${mytoken}`, { password: newPassword })
             .then(response => {
                 alert("비밀번호 변경이 완료되었습니다.");
                 console.log("Password changed successfully:", response.data);
@@ -51,6 +54,20 @@ const MyPage = () => {
                 console.error("Error changing password:", error);
             });
     };
+
+    const getout = () => {
+        axios.get(`https://ryueclipse.shop/api/deleteuser?token=${mytoken}`)
+        .then(response => {
+            alert("회원 탈퇴 성공");
+            console.log(response.data);
+            window.location.href = '/';
+            localStorage.removeItem('token');
+        })
+        .catch(error => {
+            alert("error");
+            console.error("회원 탈퇴 실패", error);
+        });
+    }
 
     return (
         <div className="w-full">
@@ -125,7 +142,7 @@ const MyPage = () => {
                             </div>
                         </div>
                     </div>
-                    <button className="w-[136px] h-[33px] rounded-[7px] bg-[#C23535] text-white mt-[100px]">회원 탈퇴</button>
+                    <button onClick={getout} className="w-[136px] h-[33px] rounded-[7px] bg-[#C23535] text-white mt-[100px]">회원 탈퇴</button>
                 </div>
             </div>
         </div>
