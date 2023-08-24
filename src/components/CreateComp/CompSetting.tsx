@@ -5,7 +5,7 @@ import Reward from './CompSettingComponents/Reward';
 import Mode from './CompSettingComponents/Mode';
 import Rule from './CompSettingComponents/Rule';
 import Qualification from './CompSettingComponents/Qualification';
-import { Dispatch, useEffect, useState } from 'react';
+import { Dispatch, useState } from 'react';
 import axios from 'axios';
 
 export type compSettingType = {
@@ -37,7 +37,7 @@ const CompSetting = () => {
     scale: 0,
   });
 
-  const [buttonValid, setButtonValid] = useState(false);
+  // const [buttonValid, setButtonValid] = useState(false);
 
   const createComp = async () => {
     try {
@@ -48,22 +48,23 @@ const CompSetting = () => {
     }
   };
 
-  useEffect(() => {
-    if (
-      compSetting.competition_title &&
-      compSetting.competition_content &&
-      compSetting.event &&
-      compSetting.qualification &&
-      compSetting.prize &&
-      compSetting.recruit_period &&
-      compSetting.competition_period &&
-      compSetting.format &&
-      compSetting.scale
-    ) {
-      setButtonValid(true);
-    }
-  }, [compSetting]);
+  // useEffect(() => {
+  //   if (
+  //     compSetting.competition_title &&
+  //     compSetting.competition_content &&
+  //     compSetting.event &&
+  //     compSetting.qualification &&
+  //     compSetting.prize &&
+  //     compSetting.recruit_period &&
+  //     compSetting.competition_period &&
+  //     compSetting.format &&
+  //     compSetting.scale
+  //   ) {
+  //     setButtonValid(true);
+  //   }
+  // }, [compSetting]);
 
+  console.log(compSetting);
   return (
     <div className="flex flex-col justify-center w-[57.5rem] h-auto mb-[100px]">
       <div className="flex flex-col justify-between items-center mb-[200px]">
@@ -86,7 +87,7 @@ const CompSetting = () => {
             buttonTitle="대회 등록하기"
             color={true}
             bigText={true}
-            disabled={buttonValid}
+            // disabled={buttonValid}
             onClick={createComp}
           />
         </div>
