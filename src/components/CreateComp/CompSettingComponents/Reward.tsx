@@ -1,6 +1,25 @@
+import { useEffect, useState } from 'react';
 import Identifier from '../../UI/Identifier';
+import { CompSettingProps } from '../CompSetting';
 
-const Reward = () => {
+const Reward = ({ compSetting, setCompSetting }: CompSettingProps) => {
+  const [first, setFirst] = useState('');
+  const [second, setSecond] = useState('');
+  const handleCompPrize = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFirst(e.target.value);
+  };
+
+  const handleCompSecondPrize = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSecond(e.target.value);
+  };
+
+  useEffect(() => {
+    if (first && second) {
+      const totalPrize = first + ',';
+      const prize = totalPrize + second;
+      setCompSetting({ ...compSetting, prize: prize });
+    }
+  }, [first, second]);
   return (
     <div className="flex justify-start items-start w-[40.125rem] mt-[85px]">
       <div className="h-[227px] relative">
@@ -14,6 +33,8 @@ const Reward = () => {
               <input
                 type="text"
                 placeholder="보상을 입력하세요"
+                value={first}
+                onChange={handleCompPrize}
                 className="w-full h-[36px] pl-[16px] text-[#9F9F9F] rounded border border-solid border-[#fff] bg-[#d9d9d91a]"
               />
             </div>
@@ -24,6 +45,8 @@ const Reward = () => {
               <input
                 type="text"
                 placeholder="보상을 입력하세요"
+                value={second}
+                onChange={handleCompSecondPrize}
                 className="w-full h-[36px] pl-[16px] text-[#9F9F9F] rounded border border-solid border-[#fff] bg-[#d9d9d91a]"
               />
             </div>
