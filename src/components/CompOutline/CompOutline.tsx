@@ -4,9 +4,11 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import moment from "moment";
 import Toggle from '../UI/Toggle';
+import { useParams } from 'react-router';
 
 const CompOutline = () => {
-  const backendInfo = ['...'];
+  const { id } = useParams(); 
+
   const togglePeriod = () => {
     setSelectedPeriod((prevPeriod) =>
       prevPeriod === '모집기간' ? '대회기간' : '모집기간',
@@ -38,11 +40,12 @@ const CompOutline = () => {
     competition_content: string;
     prize: string;
     qualification: string;
+    format: string;
   } | null>(null);
 
   useEffect(() => {
     axios
-      .get('http://3.34.170.230/api/competition/1')
+      .get(`http://3.34.170.230/api/competition/${id}`)
       .then((response) => {
         const responseData = response.data;
         if (responseData.result && responseData.result.length > 0) {
@@ -70,7 +73,7 @@ const CompOutline = () => {
           </div>
           <div className=" h-[176px] border-l border-[3px] border-[#3F4FE1] ml-[20px] mr-[5px]"></div>
           <div className="w-[295px] h-[176px] bg-[#D9D9D9] bg-opacity-30 rounded text-white text-[15px] p-2 mr-[10%] scroll-container overflow-scroll">
-            {backendInfo}
+            {competitionInfo && competitionInfo.format}
           </div>
         </div>
         <div className="flex mt-[8%]">

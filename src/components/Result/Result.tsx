@@ -1,20 +1,38 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router';
+
 
 const Result = () => {
+    const { id } = useParams();
 
-    const backendData = ['xxxxx', 'xxxx', 'xxxxxxxxxxx', 'xxxx', 'xxxxxxxx', 'xxxxx'];
+    const [backendData, setBackendData] = useState<string[]>([]);
     const [period, setPeriod] = useState('');
 
-    axios.get("http://3.34.170.230/api/competition/1")
-    .then(response => {
-        const responseData = response.data;
-        const competition = responseData.result[0];
-        setPeriod(competition.competition_period);
-    })
-    .catch(error => {
-        console.error("Error:", error);
-    });
+    useEffect(() => {
+
+        axios.get(`http://3.34.170.230/api/tournament/${id}/getRanking`)
+            .then(response => {
+                const rankingData = response.data.result;
+                rankingData.sort((a: { grade: number }, b: { grade: number }) => a.grade - b.grade);
+                const teamNames = rankingData.map((entry: { team_name: string }) => entry.team_name);
+                setBackendData(teamNames);
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+
+        axios.get(`http://3.34.170.230/api/competition/${id}`)
+            .then(response => {
+                const responseData = response.data;
+                const competition = responseData.result[0];
+                setPeriod(competition.competition_period);
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+    }, [id]);
+
     return (
         <div className="h-screen mb-[10%]">
             <div className="flex justify-between mt-[30px] ml-[10%] mr-[10%]">
@@ -45,7 +63,7 @@ const Result = () => {
                     </span>
                     <span className="grid grid-cols-1 w-full text-center">
                         {backendData.map((data, index) => (
-                           <div key={data} className={index !== backendData.length - 1 ? "border-b-[1px]" : ""}>{data}</div>
+                            <div key={data} className={index !== backendData.length - 1 ? "border-b-[1px]" : ""}>{data}</div>
                         ))}
                     </span>
                 </div>
