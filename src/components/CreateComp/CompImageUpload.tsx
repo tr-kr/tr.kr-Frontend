@@ -69,7 +69,7 @@ const CompImageUpload = () => {
         className="hidden"
         type="file"
         id="file"
-        accept=".jpeg, .png"
+        accept=".jpg, .jpeg, .png"
         onChange={saveUploadedFile}
         // ref={uploadedImgRef}
       />
