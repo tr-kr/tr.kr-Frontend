@@ -43,6 +43,8 @@ const CompSetting = () => {
     try {
       await axios.post('https://ryueclipse.shop/api/competition', compSetting);
       console.log('성공');
+      alert('대회 생성이 성공적으로 완료되었습니다!');
+      window.location.replace('/league');
     } catch (err) {
       console.error(err);
     }
