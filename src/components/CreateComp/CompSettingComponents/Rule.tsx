@@ -3,16 +3,25 @@ import Identifier from '../../UI/Identifier';
 
 const Rule = () => {
   const [pdfFile, setPdfFile]: any = useState();
+  // const [pdfFileUrl, setPdfFileUrl]: any = useState();
 
   const saveUploadedPdfFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     // 현재는 업로드된 파일의 이름만 가져옴. 백엔드 연동시 로직 수정 필요.
     if (e.target.files) {
       const fileName = e.target.files[0].name;
+      console.log(e.target.files[0]);
       setPdfFile(fileName);
+      // const reader = new FileReader();
+      // reader.readAsDataURL(e.target.files[0]);
+
+      // return new Promise<void>((resolve) => {
+      //   reader.onload = () => {
+      //     setPdfFileUrl(reader.result || null);
+      //     resolve();
+      //   };
+      // });
     }
   };
-
-  console.log(pdfFile);
   return (
     <div className="flex justify-start items-start w-[40.125rem] mt-[85px]">
       <div className="h-[45px] relative">

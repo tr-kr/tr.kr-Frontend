@@ -15,12 +15,6 @@
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
-<<<<<<< HEAD
-
-=======
-    "moment": "^2.29.4",
-    "react-calendar": "^4.6.0",
->>>>>>> 724e3b48e1b5ac2e87dbe45cac35976e84043853
     "axios": "^1.4.0",
     "moment": "^2.29.4",
     "react": "^18.2.0",

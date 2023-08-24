@@ -89,23 +89,6 @@ const router = createBrowserRouter([
           },
         ],
       },
-<<<<<<< HEAD
-      {
-        path: 'signup', 
-        element: <Signup />
-      },
-      {
-        path: 'result', 
-        element: <Result />
-      },
-      {
-
-        path: 'banner',
-        element: <Banner />
-
-      }
-=======
->>>>>>> 724e3b48e1b5ac2e87dbe45cac35976e84043853
     ],
   },
 ]);
