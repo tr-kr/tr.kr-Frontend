@@ -36,7 +36,12 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center">
-      <div className="h-screen w-screen relative flex justify-center items-center bg-[url('./assets/lolespots.svg')] bg-no-repeat bg-cover">
+      <div className="h-screen w-screen relative flex justify-center items-center">
+        <img
+          src="/assets/lolespots.svg"
+          alt="로그인 페이지 배경화면"
+          className="w-screen h-screen absolute"
+        />
         <div className="max-w-sm w-full mx-auto py-10 px-10 absolute mb-20 backdrop-blur-lg border-4 border-primary shadow-xl rounded-2xl p-8">
           <div className="max-w-md w-full mx-auto flex justify-center items-center">
             <div className="w-24 h-24 bg-gray-50 rounded-30 mr-6">
@@ -96,6 +101,7 @@ const Login = () => {
               </a>
             </div>
           </form>
+          i
         </div>
       </div>
     </div>

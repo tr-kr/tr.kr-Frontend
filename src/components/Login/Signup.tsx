@@ -156,79 +156,196 @@ const Signup = () => {
     };
 
     return (
-        <div className="max-h-screen bg-gray-50 flex flex-col">
-            
-            <div className="max-w-screen w-full h-full mx-auto">
-                <div className="h-48 w-screen relative flex justify-center items-center bg-[url('./assets/lolespots.svg')]">
-                    <div className="max-w-md w-full mx-auto flex justify-center items-center">
-                        <div className="w-24 h-24 bg-gray-50 rounded-30 mr-6">
-                            <img src={logo} className="w-full h-full object-cover"/>
-                        </div>
-                        <div className="flex flex-col items-start">
-                            <div className="text-center font-medium text-3xl text-white">e스포츠 대회</div>
-                            <div className="text-7xl font-bold text-gray-900 text-center text-white">TR.KR</div>
-                        </div>
-                    </div>
+      <div className="max-h-screen bg-gray-50 flex flex-col">
+        <div className="max-w-screen w-full h-full mx-auto">
+          <div className="h-48 w-screen relative flex justify-center items-center">
+            <img
+              src="/assets/lolespots.svg"
+              alt="로그인 페이지 배경화면"
+              className="w-screen h-screen absolute"
+            />
+            <div className="max-w-md w-full mx-auto flex justify-center items-center">
+              <div className="w-24 h-24 bg-gray-50 rounded-30 mr-6">
+                <img src={logo} className="w-full h-full object-cover" />
+              </div>
+              <div className="flex flex-col items-start">
+                <div className="text-center font-medium text-3xl text-white">
+                  e스포츠 대회
                 </div>
+                <div className="text-7xl font-bold text-gray-900 text-center text-white">
+                  TR.KR
+                </div>
+              </div>
             </div>
-            <div className="max-w-sm w-full mx-auto mt-4">
-                <form onSubmit={onSubmit} className="space-y-5">
-                    <div>
-                        <label id="NameLabel" htmlFor="" className="text-sm font-blod text-white">
-                            <span>이름</span>
-                            <input type="text" name="name" value={name} onChange={onChangeName} className="w-full p-2 border border-gray-300 rounded-lg mt-1 mb-2 text-black"/>
-                            {name.length > 0 && <span className={`message ${isName ? 'text-green-500' : 'text-red-500'}`}>{nameMessage}</span>}
-                        </label>
-                    </div>
-                    <div>
-                        <label id="NicknameLabel" htmlFor="" className="text-sm font-blod text-white">
-                            <span>닉네임</span>
-                            <input type="text" id="nickname" name="nickname" value={nickname} onChange={onChangeNickname} className="w-full p-2 border border-gray-300 rounded-lg mt-1 mb-2 text-black"/>
-                            {name.length > 0 && <span className={`message ${isName ? 'text-green-500' : 'text-red-500'}`}>{nicknameMessage}</span>}
-                        </label>
-                    </div>
-                    <div className="">
-                        <label id="EmailLabel" htmlFor="" className="text-sm font-blod text-white block">
-                            <span>이메일</span>
-                            <input type="email" id="email" name="email" value={email} onChange={onChangeEmail} className="w-full p-2 border border-gray-300 rounded-lg mt-1 mb-2 text-black"/>
-                            {email.length > 0 && <span className={`message ${isEmail ? 'text-green-500' : 'text-red-500'}`}>{emailMessage}</span>}
-                            
-                        </label>
-                    </div>
-                    <div>
-                        <label id="PasswordLabel" htmlFor="" className="text-sm font-blod text-white block">
-                            <span>비밀번호</span>
-                            <input type="password" id="password" name="password" value={password} onChange={onChangePassword} className="w-full p-2 border border-gray-300 rounded-lg mt-1 mb-2 font-sans text-black"/>
-                            {password.length > 0 && (<span className={`message ${isPassword ? 'text-green-500' : 'text-red-500'}`}>{passwordMessage}</span>)}
-                        </label>
-                    </div>
-                    <div className="">
-                        <label id="PasswordCheckLabel" htmlFor="" className="text-sm font-blod text-white block">
-                            <span>비밀번호 확인</span>
-                            <input type="password" id="password-check" name="password-check" value={passwordConfirm} onChange={onChangePasswordConfirm} className="w-full p-2 border border-gray-300 rounded-lg mt-1 mb-2 font-sans text-black"/>
-                            {passwordConfirm.length > 0 && (<span className={`message ${isPasswordConfirm ? 'text-green-500' : 'text-red-500'}`}>{passwordConfirmMessage}</span>)}
-                        </label>
-                    </div>
-                    {/* <div>
+          </div>
+        </div>
+        <div className="max-w-sm w-full mx-auto mt-4">
+          <form onSubmit={onSubmit} className="space-y-5">
+            <div>
+              <label
+                id="NameLabel"
+                htmlFor=""
+                className="text-sm font-blod text-white"
+              >
+                <span>이름</span>
+                <input
+                  type="text"
+                  name="name"
+                  value={name}
+                  onChange={onChangeName}
+                  className="w-full p-2 border border-gray-300 rounded-lg mt-1 mb-2 text-black"
+                />
+                {name.length > 0 && (
+                  <span
+                    className={`message ${
+                      isName ? 'text-green-500' : 'text-red-500'
+                    }`}
+                  >
+                    {nameMessage}
+                  </span>
+                )}
+              </label>
+            </div>
+            <div>
+              <label
+                id="NicknameLabel"
+                htmlFor=""
+                className="text-sm font-blod text-white"
+              >
+                <span>닉네임</span>
+                <input
+                  type="text"
+                  id="nickname"
+                  name="nickname"
+                  value={nickname}
+                  onChange={onChangeNickname}
+                  className="w-full p-2 border border-gray-300 rounded-lg mt-1 mb-2 text-black"
+                />
+                {name.length > 0 && (
+                  <span
+                    className={`message ${
+                      isName ? 'text-green-500' : 'text-red-500'
+                    }`}
+                  >
+                    {nicknameMessage}
+                  </span>
+                )}
+              </label>
+            </div>
+            <div className="">
+              <label
+                id="EmailLabel"
+                htmlFor=""
+                className="text-sm font-blod text-white block"
+              >
+                <span>이메일</span>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={email}
+                  onChange={onChangeEmail}
+                  className="w-full p-2 border border-gray-300 rounded-lg mt-1 mb-2 text-black"
+                />
+                {email.length > 0 && (
+                  <span
+                    className={`message ${
+                      isEmail ? 'text-green-500' : 'text-red-500'
+                    }`}
+                  >
+                    {emailMessage}
+                  </span>
+                )}
+              </label>
+            </div>
+            <div>
+              <label
+                id="PasswordLabel"
+                htmlFor=""
+                className="text-sm font-blod text-white block"
+              >
+                <span>비밀번호</span>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  value={password}
+                  onChange={onChangePassword}
+                  className="w-full p-2 border border-gray-300 rounded-lg mt-1 mb-2 font-sans text-black"
+                />
+                {password.length > 0 && (
+                  <span
+                    className={`message ${
+                      isPassword ? 'text-green-500' : 'text-red-500'
+                    }`}
+                  >
+                    {passwordMessage}
+                  </span>
+                )}
+              </label>
+            </div>
+            <div className="">
+              <label
+                id="PasswordCheckLabel"
+                htmlFor=""
+                className="text-sm font-blod text-white block"
+              >
+                <span>비밀번호 확인</span>
+                <input
+                  type="password"
+                  id="password-check"
+                  name="password-check"
+                  value={passwordConfirm}
+                  onChange={onChangePasswordConfirm}
+                  className="w-full p-2 border border-gray-300 rounded-lg mt-1 mb-2 font-sans text-black"
+                />
+                {passwordConfirm.length > 0 && (
+                  <span
+                    className={`message ${
+                      isPasswordConfirm ? 'text-green-500' : 'text-red-500'
+                    }`}
+                  >
+                    {passwordConfirmMessage}
+                  </span>
+                )}
+              </label>
+            </div>
+            {/* <div>
                         <label id="BirthLabel" htmlFor="" className="text-sm font-blod text-white">
                             <span>생년월일</span>
                             <input type="birth" id="birth" name="birth" value={birth} onChange={onChangeBirth} className="w-full p-2 border border-gray-300 rounded-lg mt-1 text-black"/>
                         </label>
                     </div> */}
-                    <div>
-                        <button type='submit' disabled={!(isName && isNickname && isEmail && isPassword && isPasswordConfirm)} className="w-full mt-6 py-4 px-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white text-xl disabled:bg-gray " onClick={() => {
-                            duplicationCheck();
-                            // location.replace("/login")
-                        }}>가입 완료</button>
-                    </div>
-                </form>
-                <div className="mt-4 flex justify-center items-center text-white mb-16">
-                    이미 회원이신가요?  &nbsp;
-                    <Link to="/login" className="text-blue-600">로그인 하러가기</Link>
-                </div>
+            <div>
+              <button
+                type="submit"
+                disabled={
+                  !(
+                    isName &&
+                    isNickname &&
+                    isEmail &&
+                    isPassword &&
+                    isPasswordConfirm
+                  )
+                }
+                className="w-full mt-6 py-4 px-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white text-xl disabled:bg-gray "
+                onClick={() => {
+                  duplicationCheck();
+                  // location.replace("/login")
+                }}
+              >
+                가입 완료
+              </button>
             </div>
-
+          </form>
+          <div className="mt-4 flex justify-center items-center text-white mb-16">
+            이미 회원이신가요? &nbsp;
+            <Link to="/login" className="text-blue-600">
+              로그인 하러가기
+            </Link>
+          </div>
         </div>
+      </div>
     );
 };
 
